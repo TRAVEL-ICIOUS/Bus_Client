@@ -3,7 +3,7 @@
     ViewBag.Title = "GetBusInfo";
 }
 
-<h2>GetBusInfo</h2>
+<h2 style="text-align:center">GetBusInfo</h2>
 
 @using (Html.BeginForm())
 {
@@ -28,7 +28,12 @@
             <td>@Html.TextBoxFor(x => x.BusOrgCapacity)</td>
         </tr>
 
-        <tr><td><input type="submit" /></td></tr>
+        <tr>
+            <td></td>
+        <td>
+            <input type="submit" />
+            </td>
+        </tr>
     </table>
     if (ViewBag.msg != null)
     {

@@ -10,6 +10,10 @@ namespace Bus_Client.Controllers
     public class DataController : Controller
     {
         // GET: Data
+        public ActionResult Main()
+        {
+            return View();
+        }
         public ActionResult GetBusInfo()
         {
             ServiceReference1.Insert_BusInfo B = new ServiceReference1.Insert_BusInfo();

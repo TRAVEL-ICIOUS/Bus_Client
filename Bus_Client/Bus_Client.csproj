@@ -218,6 +218,7 @@
     <Content Include="Views\Data\GetRouteInfo.cshtml" />
     <Content Include="Views\Shared\Main.cshtml" />
     <Content Include="Views\Shared\Registration.cshtml" />
+    <Content Include="Views\Data\Main.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
