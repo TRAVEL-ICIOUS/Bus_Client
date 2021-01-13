@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="~/StyleSheet/Style1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 900, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+        <img src="~/Images/Black Logo.png" height="120" style="float:left">
+        <div class="dropdown">
+            <button class="dropbtn">
+                Login
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Customer</a>
+                <a href="#">Admin</a>
+
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">
+                Registration
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#">Customer</a>
+            </div>
+        </div>
+
+        <a href="#contact" style="float:right">Contact Us</a>
+        <a href="#Facilities" style="float:right">Services</a>
+    </div>
+
+    <div class="row">
+        <div class="leftcolumn">
+            <div class="car">
+                <div class="card">
+                    <div class="banner" style="background-image: url(/Images/Banner.png)">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="leftcolumn">
+        <div class="car">
+            <div class="card">
+                <h3 style="text-align:center;color:white">.</h3>
+                <h2 style="text-align: center" id="Facilities">Facilities in Bus</h2>
+
+                <h3 style="text-align:center;font-weight:bold">Sleeper</h3>
+                <div class="about">
+                    <img src="~/Images/sleepericon01.jpg" />
+                    <p>Reading Light</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/sleepericon02.jpg" />
+                    <p>BedSheet Blanket</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/sleepericon03.jpg" />
+                    <p>Sofa cum Bed</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/sleepericon04.jpg" />
+                    <p>Privacy</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/sleepericon05.jpg" />
+                    <p>Attendant Call Bell</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/sleepericon06.jpg" />
+                    <p>Timely Departure</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/sleepericon07.jpg" />
+                    <p>Personal Entertainment</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/sleepericon08.jpg" />
+                    <p>Cleanliness</p>
+                </div>
+
+
+                <h3 style="text-align:center;font-weight:bold">Seating</h3>
+                <div class="about">
+                    <img src="~/Images/sleepericon06.jpg" />
+                    <p>Timely Departure</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/Fully-Sanitized-Interior.jpg" />
+                    <p>Fully Sanitized Interior</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/sleepericon08.jpg" />
+                    <p>Cleanliness</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/insurance.jpg" />
+                    <p>Passenger Insurance</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/GPS.jpg" />
+                    <p>GPS</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/Experienced Pilot.jpg" />
+                    <p>Experienced Pilot</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/auto-Announcement.jpg" />
+                    <p>Auto Announcement</p>
+                </div>
+                <div class="about">
+                    <img src="~/Images/busAge.jpg" />
+                    <p>Bus Age Less than 3 Years</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="leftcolumn">
+        <div class="car">
+            <div class="card">
+                <h3 style="text-align:center;color:white">.</h3>
+                    <img src="~/Images/promise.png" />
+                <h2>We Promise To Deliver</h2>
+                <div class="rcard">
+                    <img src="~/Images/Capture.png" alt="Avatar" style="width:100%">
+                </div>
+                <div class="rcard">
+                    <img src="~/Images/Capture1.png" alt="Avatar" style="width:100%">
+                </div>
+                <div class="rcard">
+                    <img src="~/Images/Capture2.png" alt="Avatar" style="width:100%">
+                </div>
+                <div class="rcard">
+                    <img src="~/Images/Capture3.png" alt="Avatar" style="width:100%">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightcolumn" >
+        <div class="template">
+            <h2 id="contact">Contact Us</h2>
+            <h4><b>Phone:</b></h4>
+            <p>+919049932976</p>
+            <h4><b>Email:</b></h4>
+            <p>mail@Travelicious.in</p>
+            <h4><b>Address:</b></h4>
+            <p>Shop no. 6, Lion's club building, Chunabhatti Main Rd, Bhopal, Madhya Pradesh 462016</p>
+        </div>
+    </div>
+    <div class="rightcolumn" style="background-image: url(image/944566.jpg)">
+        <div class="template">
+            <h3>Find Us On Google Maps</h3>
+            <div class="mapouter">
+            <div class="gmap_canvas"><iframe width="600" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Travelicious%20Shop%20no.%206,%20Lion's%20club%20building,%20Chunabhatti%20Main%20Rd,%20Bhopal,%20Madhya%20Pradesh%20462016&t=&z=19&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org">fmovies review</a>
+            <style>
+                .mapouter {
+                    position: relative;
+                    text-align: right;
+                    height: 400px;
+                    width: 600px;
+                }
+
+                .gmap_canvas {
+                    overflow: hidden;
+                    background: none !important;
+                    height: 400px;
+                    width: 600px;
+                }
+            </style><a href="https://maps-google.github.io/embed-google-map/"></a></div></div>
+        </div>
+    </div>
+    <div class="footer">
+        <h2>© Copyright 2021 Travelicious.Inc</h2>
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

@@ -150,6 +150,32 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\auto-Announcement.jpg" />
+    <Content Include="Images\Banner.png" />
+    <Content Include="Images\BannerRegister.png" />
+    <Content Include="Images\Black Logo.png" />
+    <Content Include="Images\BRS.png" />
+    <Content Include="Images\busAge.jpg" />
+    <Content Include="Images\BusBanner.png" />
+    <Content Include="Images\Capture.png" />
+    <Content Include="Images\Capture1.png" />
+    <Content Include="Images\Capture2.png" />
+    <Content Include="Images\Capture3.png" />
+    <Content Include="Images\Experienced Pilot.jpg" />
+    <Content Include="Images\Fully-Sanitized-Interior.jpg" />
+    <Content Include="Images\GPS.jpg" />
+    <Content Include="Images\insurance.jpg" />
+    <Content Include="Images\MinViolet Waves Icon Travel Logo.png" />
+    <Content Include="Images\promise.png" />
+    <Content Include="Images\sleepericon01.jpg" />
+    <Content Include="Images\sleepericon02.jpg" />
+    <Content Include="Images\sleepericon03.jpg" />
+    <Content Include="Images\sleepericon04.jpg" />
+    <Content Include="Images\sleepericon05.jpg" />
+    <Content Include="Images\sleepericon06.jpg" />
+    <Content Include="Images\sleepericon07.jpg" />
+    <Content Include="Images\sleepericon08.jpg" />
+    <Content Include="Images\Violet Waves Icon Travel Logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Connected Services\ServiceReference1\Service1.wsdl" />
@@ -173,6 +199,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Stylesheet\Style1.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -189,6 +216,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Data\GetBusInfo.cshtml" />
     <Content Include="Views\Data\GetRouteInfo.cshtml" />
+    <Content Include="Views\Data\Main.cshtml" />
+    <Content Include="Views\Data\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
