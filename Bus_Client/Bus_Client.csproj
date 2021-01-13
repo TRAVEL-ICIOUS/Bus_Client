@@ -216,8 +216,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Data\GetBusInfo.cshtml" />
     <Content Include="Views\Data\GetRouteInfo.cshtml" />
-    <Content Include="Views\Data\Main.cshtml" />
-    <Content Include="Views\Data\Registration.cshtml" />
+    <Content Include="Views\Shared\Main.cshtml" />
+    <Content Include="Views\Shared\Registration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
