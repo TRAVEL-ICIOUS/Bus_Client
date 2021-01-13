@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Insert_BusInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BusID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusOrgCapacity" type="xs:int" />
+      <xs:element minOccurs="0" name="BusType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Insert_BusInfo" nillable="true" type="tns:Insert_BusInfo" />
+  <xs:complexType name="Insert_RouteInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RouteCost" type="xs:int" />
+      <xs:element minOccurs="0" name="RouteFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteTo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Insert_RouteInfo" nillable="true" type="tns:Insert_RouteInfo" />
+</xs:schema>

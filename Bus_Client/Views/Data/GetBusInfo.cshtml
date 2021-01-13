@@ -1,0 +1,43 @@
+﻿@model Bus_Client.ServiceReference1.Insert_BusInfo
+@{
+    ViewBag.Title = "GetBusInfo";
+}
+
+<h2>GetBusInfo</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>BusID</td>
+            <td>@Html.TextBoxFor(x => x.BusID)</td>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td>@Html.TextBoxFor(x => x.BusName)</td>
+        </tr>
+
+        <tr>
+            <td>Type</td>
+            <td>@Html.TextBoxFor(x => x.BusType)</td>
+        </tr>
+
+        <tr>
+            <td>OG_Capacity</td>
+            <td>@Html.TextBoxFor(x => x.BusOrgCapacity)</td>
+        </tr>
+
+        <tr><td><input type="submit" /></td></tr>
+    </table>
+    if (ViewBag.msg != null)
+    {
+
+        @ViewBag.msg
+
+
+
+    }
+}
+
+
