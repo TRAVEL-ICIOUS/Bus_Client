@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="~/StyleSheet/Style1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="~/Images/Black Logo.png" height="120" style="float:left">
+        <a href="#contact" style="float:right">Contact Us</a>
+        <a href="#Facilities" style="float:right">Services</a>
+    </div>
+    <div class="banneruser" style="background-image:url(/Images/BannerRegister.png)">
+        <h1 style="text-align:center">Login</h1>
+        @RenderBody()
+
+    </div>
+    <div class="footer">
+        <h2>© Copyright 2021 Travelicious.Inc</h2>
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+</body>
+</html>
