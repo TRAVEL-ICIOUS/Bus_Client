@@ -54,20 +54,31 @@ namespace Bus_Client.Controllers
             bi = s.GetBusid();
             ViewBag.D = bi;
 
-            //ServiceReference1.Insert_RouteInfo R = new ServiceReference1.Insert_RouteInfo();
-            //ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
-            //ri = s1.GetRouteid();
-            //ViewBag.D = ri;
+            ServiceReference1.Insert_RouteInfo R = new ServiceReference1.Insert_RouteInfo();
+            ServiceReference1.Insert_ScheduleInfo R1 = new ServiceReference1.Insert_ScheduleInfo();
+            ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
+           
+            ri = s1.GetRouteid();
+            List<SelectListItem> L = new List<SelectListItem>();
+            foreach(Insert_RouteInfo i in ri)
+            {
+                L.Add(new SelectListItem { Text = i.RouteFrom + "-" + i.RouteTo, Value =i.RouteID });
+
+            }
+           
+            ViewBag.D1 = L;
 
 
-            return View(B/*+" "+R*/);
+            return View(R1);
 
         }
         [HttpPost]
         public ActionResult FetchBusid(ServiceReference1.Insert_ScheduleInfo Sc)
         {
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
-            ViewBag.D = bi;/*+ "" + ri;*/
+            ViewBag.Br = Sc.Busid + " " + Sc.Routeid;
+            //ViewBag.D1 = Sc.Routeid;
+            //ViewBag.D = Sc.Busid;
             ViewBag.msg = DbOperations.InsertScheduleInfo(Sc);
             return View();
         }
