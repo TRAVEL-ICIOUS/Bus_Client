@@ -1,35 +1,41 @@
 ﻿@model Bus_Client.ServiceReference1.Insert_RouteInfo
 @{
     ViewBag.Title = "GetRouteInfo";
+    Layout = "~/Views/Shared/PageRegistration.cshtml";
 }
 
-<h2>GetRouteInfo</h2>
+<h1>Route Registration</h1>
 @using (Html.BeginForm())
 {
-    <table>
-        <tr>
-            <td>RouteId</td>
-            <td>@Html.TextBoxFor(x => x.RouteID)</td>
-        </tr>
+<table>
+    <tr>
+        <td>Route ID :</td>
+        <td>@Html.TextBoxFor(x => x.RouteID)</td>
+    </tr>
 
-        <tr>
-            <td>From</td>
-            <td>@Html.TextBoxFor(x => x.RouteFrom)</td>
-        </tr>
+    <tr>
+        <td>From :</td>
+        <td>@Html.TextBoxFor(x => x.RouteFrom)</td>
+    </tr>
 
-        <tr>
-            <td>To</td>
-            <td>@Html.TextBoxFor(x => x.RouteTo)</td>
-        </tr>
+    <tr>
+        <td>To :</td>
+        <td>@Html.TextBoxFor(x => x.RouteTo)</td>
+    </tr>
 
-        <tr>
-            <td>Cost</td>
-            <td>@Html.TextBoxFor(x => x.RouteCost)</td>
-        </tr>
+    <tr>
+        <td>Cost :</td>
+        <td>@Html.TextBoxFor(x => x.RouteCost)</td>
+    </tr>
 
 
-        <tr><td><input type="submit" /></td></tr>
-    </table>
+    <tr>
+        <td></td>
+        <td>
+            <input type="submit" />
+        </td>
+    </tr>
+</table>
     if (ViewBag.msg != null)
     {
 
@@ -74,7 +80,7 @@
         background-color: white;
         color: black;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 14px;
         border-radius: 20px;
     }
 
@@ -86,7 +92,19 @@
             background-color: lightgrey;
             color: black;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 16px;
             border-radius: 20px;
         }
+
+    select {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 20px;
+    }
 </style>

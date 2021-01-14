@@ -222,10 +222,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Data\GetBusInfo.cshtml" />
     <Content Include="Views\Data\GetRouteInfo.cshtml" />
-    <Content Include="Views\Shared\Main.cshtml" />
-    <Content Include="Views\Shared\Registration.cshtml" />
     <Content Include="Views\Data\Main.cshtml" />
     <Content Include="Views\Data\FetchBusid.cshtml" />
+    <Content Include="Views\Shared\PageLogin.cshtml" />
+    <Content Include="Views\Shared\PageMain.cshtml" />
+    <Content Include="Views\Shared\PageRegistration.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
