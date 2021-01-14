@@ -1,0 +1,36 @@
+﻿@model Bus_Client.ServiceReference1.Insert_ScheduleInfo
+@{
+    ViewBag.Title = "FetchBusid";
+}
+
+<h2>FetchBusid</h2>
+
+
+@using (Html.BeginForm())
+{
+    <table>
+    <tr>
+        <td>Sid</td>
+        <td>@Html.TextBoxFor(x => x.ScheduleID)</td>
+    </tr>
+    <tr>
+        <td>busid</td>
+        <td>
+            @Html.DropDownListFor(x => x.Busid, new SelectList(ViewBag.D, "Busid", "BusName"), "select");
+
+        </td>
+    </tr>
+    @*<tr>
+        <td>routeid</td>
+        <td>
+            @Html.DropDownListFor(x => x.Routeid, new SelectList(ViewBag.D, "Routeid", "RouteName"), "select");
+
+        </td>
+    </tr>*@
+    <tr>
+        <td>departure time</td>
+        <td>@Html.TextBoxFor(x => x.DepartureTime)</td>
+    </tr>
+        </table>
+}
+

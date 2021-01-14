@@ -22,5 +22,13 @@ namespace Bus_Client.Models
             return s;
 
         }
+
+        public static string InsertScheduleInfo(ServiceReference1.Insert_ScheduleInfo Sc )
+        {
+            ServiceReference1.Service1Client S = new ServiceReference1.Service1Client();
+            string s = S.InsertScheduleInfo(Sc);
+            return s;
+
+        }
     }
 }
