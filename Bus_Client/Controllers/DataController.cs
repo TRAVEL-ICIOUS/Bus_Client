@@ -11,7 +11,9 @@ namespace Bus_Client.Controllers
     public class DataController : Controller
     {
         static Insert_BusInfo [] bi = null;
+        static Insert_ScheduleInfo[] As = null;
         static Insert_RouteInfo[] ri = null;
+        static List<SelectListItem> L = new List<SelectListItem>();
         // GET: Data
         public ActionResult Main()
         {
@@ -59,7 +61,7 @@ namespace Bus_Client.Controllers
             ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
            
             ri = s1.GetRouteid();
-            List<SelectListItem> L = new List<SelectListItem>();
+            
             foreach(Insert_RouteInfo i in ri)
             {
                 L.Add(new SelectListItem { Text = i.RouteFrom + "-" + i.RouteTo, Value =i.RouteID });
@@ -67,19 +69,39 @@ namespace Bus_Client.Controllers
             }
            
             ViewBag.D1 = L;
-
-
-            return View(R1);
+             return View(R1);
 
         }
         [HttpPost]
         public ActionResult FetchBusid(ServiceReference1.Insert_ScheduleInfo Sc)
         {
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
-            ViewBag.Br = Sc.Busid + " " + Sc.Routeid;
-            //ViewBag.D1 = Sc.Routeid;
-            //ViewBag.D = Sc.Busid;
+            // ViewBag.D = Sc.Busid + " " + Sc.Routeid;
+            ViewBag.D1 = L;
+           ViewBag.D = bi;
             ViewBag.msg = DbOperations.InsertScheduleInfo(Sc);
+            return View();
+        }
+
+
+        public ActionResult Availseats()
+        {
+            ServiceReference1.Insert_ScheduleInfo B = new ServiceReference1.Insert_ScheduleInfo();
+            ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
+            As = s1.GetScheduleid();
+            ViewBag.D2 = As;
+            ServiceReference1.Insert_availseats A1 = new ServiceReference1.Insert_availseats();
+            return View(A1);
+
+
+
+        }
+        [HttpPost]
+        public ActionResult Availseats(ServiceReference1.Insert_availseats Av)
+        {
+            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+            ViewBag.D2 = As;
+            ViewBag.msg = DbOperations.InsertSeatsAvailInfo(Av);
             return View();
         }
 

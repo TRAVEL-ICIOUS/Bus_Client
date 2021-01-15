@@ -212,7 +212,7 @@ namespace Bus_Client.ServiceReference1 {
         private string BusidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime DepartureTimeField;
+        private System.TimeSpan DepartureTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RouteidField;
@@ -244,7 +244,7 @@ namespace Bus_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DepartureTime {
+        public System.TimeSpan DepartureTime {
             get {
                 return this.DepartureTimeField;
             }
@@ -265,6 +265,115 @@ namespace Bus_Client.ServiceReference1 {
                 if ((object.ReferenceEquals(this.RouteidField, value) != true)) {
                     this.RouteidField = value;
                     this.RaisePropertyChanged("Routeid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ScheduleID {
+            get {
+                return this.ScheduleIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ScheduleIDField, value) != true)) {
+                    this.ScheduleIDField = value;
+                    this.RaisePropertyChanged("ScheduleID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Insert_availseats", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes")]
+    [System.SerializableAttribute()]
+    public partial class Insert_availseats : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AvailableSeatsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DoJField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int GeneralSeatsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ScheduleIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AID {
+            get {
+                return this.AIDField;
+            }
+            set {
+                if ((this.AIDField.Equals(value) != true)) {
+                    this.AIDField = value;
+                    this.RaisePropertyChanged("AID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AvailableSeats {
+            get {
+                return this.AvailableSeatsField;
+            }
+            set {
+                if ((this.AvailableSeatsField.Equals(value) != true)) {
+                    this.AvailableSeatsField = value;
+                    this.RaisePropertyChanged("AvailableSeats");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DoJ {
+            get {
+                return this.DoJField;
+            }
+            set {
+                if ((this.DoJField.Equals(value) != true)) {
+                    this.DoJField = value;
+                    this.RaisePropertyChanged("DoJ");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int GeneralSeats {
+            get {
+                return this.GeneralSeatsField;
+            }
+            set {
+                if ((this.GeneralSeatsField.Equals(value) != true)) {
+                    this.GeneralSeatsField = value;
+                    this.RaisePropertyChanged("GeneralSeats");
                 }
             }
         }
@@ -325,6 +434,18 @@ namespace Bus_Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertScheduleInfo", ReplyAction="http://tempuri.org/IService1/InsertScheduleInfoResponse")]
         System.Threading.Tasks.Task<string> InsertScheduleInfoAsync(Bus_Client.ServiceReference1.Insert_ScheduleInfo S);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetScheduleid", ReplyAction="http://tempuri.org/IService1/GetScheduleidResponse")]
+        Bus_Client.ServiceReference1.Insert_ScheduleInfo[] GetScheduleid();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetScheduleid", ReplyAction="http://tempuri.org/IService1/GetScheduleidResponse")]
+        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.Insert_ScheduleInfo[]> GetScheduleidAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertSeatsAvailInfo", ReplyAction="http://tempuri.org/IService1/InsertSeatsAvailInfoResponse")]
+        string InsertSeatsAvailInfo(Bus_Client.ServiceReference1.Insert_availseats A);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertSeatsAvailInfo", ReplyAction="http://tempuri.org/IService1/InsertSeatsAvailInfoResponse")]
+        System.Threading.Tasks.Task<string> InsertSeatsAvailInfoAsync(Bus_Client.ServiceReference1.Insert_availseats A);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -392,6 +513,22 @@ namespace Bus_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> InsertScheduleInfoAsync(Bus_Client.ServiceReference1.Insert_ScheduleInfo S) {
             return base.Channel.InsertScheduleInfoAsync(S);
+        }
+        
+        public Bus_Client.ServiceReference1.Insert_ScheduleInfo[] GetScheduleid() {
+            return base.Channel.GetScheduleid();
+        }
+        
+        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.Insert_ScheduleInfo[]> GetScheduleidAsync() {
+            return base.Channel.GetScheduleidAsync();
+        }
+        
+        public string InsertSeatsAvailInfo(Bus_Client.ServiceReference1.Insert_availseats A) {
+            return base.Channel.InsertSeatsAvailInfo(A);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertSeatsAvailInfoAsync(Bus_Client.ServiceReference1.Insert_availseats A) {
+            return base.Channel.InsertSeatsAvailInfoAsync(A);
         }
     }
 }

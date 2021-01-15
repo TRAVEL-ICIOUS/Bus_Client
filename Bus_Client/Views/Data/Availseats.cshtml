@@ -1,0 +1,113 @@
+﻿@model Bus_Client.ServiceReference1.Insert_availseats
+@{
+    ViewBag.Title = "Availseats";
+}
+
+<h2>Availseats</h2>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>Schedule ID</td>
+            <td>@Html.DropDownListFor(x => x.ScheduleID, new SelectList(ViewBag.D2, "ScheduleID", "DepartureTime"), "select")</td>
+        </tr>
+        <tr>
+            <td>DOJ</td>
+            <td>
+                @Html.EditorFor(x => x.DoJ)
+            </td>
+
+        </tr>
+        <tr>
+            <td>General Seats</td>
+            <td>
+
+                @Html.TextBoxFor(x => x.GeneralSeats)
+            </td>
+        </tr>
+        <tr>
+            <td>Avail Seats</td>
+            <td>
+
+                @Html.TextBoxFor(x => x.AvailableSeats)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+
+            <td><input type="submit" /></td>
+        </tr>
+    </table>
+    if (ViewBag.msg != null)
+    {
+
+        @ViewBag.msg
+
+
+
+    }
+}
+<style>
+    table {
+        justify-content: center;
+        text-align: center;
+        align-content: center;
+        position: center;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    text {
+        text-align: center;
+        width: 100%;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+    td {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    input {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+
+        input.btn {
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: lightgrey;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+    select {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+</style>

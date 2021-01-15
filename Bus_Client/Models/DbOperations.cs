@@ -30,5 +30,13 @@ namespace Bus_Client.Models
             return s;
 
         }
+
+        public static string InsertSeatsAvailInfo(ServiceReference1.Insert_availseats Av)
+        {
+            ServiceReference1.Service1Client S = new ServiceReference1.Service1Client();
+            string s = S.InsertSeatsAvailInfo(Av);
+            return s;
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:62695/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="Insert_BusInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="BusID" nillable="true" type="xs:string" />
@@ -33,10 +34,26 @@
   <xs:complexType name="Insert_ScheduleInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="Busid" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DepartureTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DepartureTime" type="ser:duration" />
       <xs:element minOccurs="0" name="Routeid" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ScheduleID" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Insert_ScheduleInfo" nillable="true" type="tns:Insert_ScheduleInfo" />
+  <xs:complexType name="ArrayOfInsert_ScheduleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Insert_ScheduleInfo" nillable="true" type="tns:Insert_ScheduleInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInsert_ScheduleInfo" nillable="true" type="tns:ArrayOfInsert_ScheduleInfo" />
+  <xs:complexType name="Insert_availseats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AID" type="xs:int" />
+      <xs:element minOccurs="0" name="AvailableSeats" type="xs:int" />
+      <xs:element minOccurs="0" name="DoJ" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="GeneralSeats" type="xs:int" />
+      <xs:element minOccurs="0" name="ScheduleID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Insert_availseats" nillable="true" type="tns:Insert_availseats" />
 </xs:schema>
