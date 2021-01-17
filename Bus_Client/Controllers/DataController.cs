@@ -95,7 +95,7 @@ namespace Bus_Client.Controllers
         {
             ServiceReference1.Insert_ScheduleInfo B = new ServiceReference1.Insert_ScheduleInfo();
             ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
-            As = s1.GetScheduleid();
+            As = s1.GetScheduleId();
             ViewBag.D2 = As;
             ServiceReference1.Insert_availseats A1 = new ServiceReference1.Insert_availseats();
             return View(A1);
@@ -124,10 +124,10 @@ namespace Bus_Client.Controllers
             Session["Country"] = cy;
 
 
-            ServiceReference1.CS S = new ServiceReference1.CS();
-            ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
-             st= s1.GetState();
-            ViewBag.D4 = st;
+            //ServiceReference1.CS S = new ServiceReference1.CS();
+            //ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
+            // st= s1.GetState();
+            //ViewBag.D4 = st;
 
 
             

@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:62695/Service1.svc?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.29.93:96/Service1.svc?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service11.wsdl" MetadataType="Wsdl" ID="762cbdc9-61ab-47bc-a576-2c867c6babf9" SourceId="1" SourceUrl="http://localhost:62695/Service1.svc?wsdl" />
-    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="868bae94-7499-416b-bde8-d089f214da36" SourceId="1" SourceUrl="http://localhost:62695/Service1.svc?xsd=xsd1" />
-    <MetadataFile FileName="Service131.xsd" MetadataType="Schema" ID="eaa1a033-d977-49e0-96ab-71b6ed85cb26" SourceId="1" SourceUrl="http://localhost:62695/Service1.svc?xsd=xsd2" />
-    <MetadataFile FileName="Service132.xsd" MetadataType="Schema" ID="e2900bd1-df28-44b6-b1b4-2772be73728f" SourceId="1" SourceUrl="http://localhost:62695/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="1822c287-4844-4fc7-a4c0-77e2c009d236" SourceId="1" SourceUrl="http://192.168.29.93:96/Service1.svc?wsdl" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="ce5c6e51-6d25-4e12-a577-8e0181a95404" SourceId="1" SourceUrl="http://192.168.29.93:96/Service1.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="aa2fab3a-8869-400d-b870-3bdbf0d083df" SourceId="1" SourceUrl="http://192.168.29.93:96/Service1.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="e8741fdf-872b-4f2c-9ce0-b34e0006223a" SourceId="1" SourceUrl="http://192.168.29.93:96/Service1.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

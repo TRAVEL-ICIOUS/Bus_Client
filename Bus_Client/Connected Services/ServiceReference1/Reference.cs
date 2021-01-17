@@ -185,7 +185,7 @@ namespace Bus_Client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Insert_ScheduleInfo", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Insert_ScheduleInfo", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes", IsReference=true)]
     [System.SerializableAttribute()]
     public partial class Insert_ScheduleInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -749,11 +749,11 @@ namespace Bus_Client.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertScheduleInfo", ReplyAction="http://tempuri.org/IService1/InsertScheduleInfoResponse")]
         System.Threading.Tasks.Task<string> InsertScheduleInfoAsync(Bus_Client.ServiceReference1.Insert_ScheduleInfo S);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetScheduleid", ReplyAction="http://tempuri.org/IService1/GetScheduleidResponse")]
-        Bus_Client.ServiceReference1.Insert_ScheduleInfo[] GetScheduleid();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetScheduleId", ReplyAction="http://tempuri.org/IService1/GetScheduleIdResponse")]
+        Bus_Client.ServiceReference1.Insert_ScheduleInfo[] GetScheduleId();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetScheduleid", ReplyAction="http://tempuri.org/IService1/GetScheduleidResponse")]
-        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.Insert_ScheduleInfo[]> GetScheduleidAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetScheduleId", ReplyAction="http://tempuri.org/IService1/GetScheduleIdResponse")]
+        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.Insert_ScheduleInfo[]> GetScheduleIdAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertSeatsAvailInfo", ReplyAction="http://tempuri.org/IService1/InsertSeatsAvailInfoResponse")]
         string InsertSeatsAvailInfo(Bus_Client.ServiceReference1.Insert_availseats A);
@@ -774,10 +774,10 @@ namespace Bus_Client.ServiceReference1 {
         System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetCountryAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetState", ReplyAction="http://tempuri.org/IService1/GetStateResponse")]
-        Bus_Client.ServiceReference1.CS[] GetState();
+        Bus_Client.ServiceReference1.CS[] GetState(string Country);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetState", ReplyAction="http://tempuri.org/IService1/GetStateResponse")]
-        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetStateAsync();
+        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetStateAsync(string Country);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Getmobileno", ReplyAction="http://tempuri.org/IService1/GetmobilenoResponse")]
         Bus_Client.ServiceReference1.CustomerRegistration[] Getmobileno();
@@ -859,12 +859,12 @@ namespace Bus_Client.ServiceReference1 {
             return base.Channel.InsertScheduleInfoAsync(S);
         }
         
-        public Bus_Client.ServiceReference1.Insert_ScheduleInfo[] GetScheduleid() {
-            return base.Channel.GetScheduleid();
+        public Bus_Client.ServiceReference1.Insert_ScheduleInfo[] GetScheduleId() {
+            return base.Channel.GetScheduleId();
         }
         
-        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.Insert_ScheduleInfo[]> GetScheduleidAsync() {
-            return base.Channel.GetScheduleidAsync();
+        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.Insert_ScheduleInfo[]> GetScheduleIdAsync() {
+            return base.Channel.GetScheduleIdAsync();
         }
         
         public string InsertSeatsAvailInfo(Bus_Client.ServiceReference1.Insert_availseats A) {
@@ -891,12 +891,12 @@ namespace Bus_Client.ServiceReference1 {
             return base.Channel.GetCountryAsync();
         }
         
-        public Bus_Client.ServiceReference1.CS[] GetState() {
-            return base.Channel.GetState();
+        public Bus_Client.ServiceReference1.CS[] GetState(string Country) {
+            return base.Channel.GetState(Country);
         }
         
-        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetStateAsync() {
-            return base.Channel.GetStateAsync();
+        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetStateAsync(string Country) {
+            return base.Channel.GetStateAsync(Country);
         }
         
         public Bus_Client.ServiceReference1.CustomerRegistration[] Getmobileno() {

@@ -8,9 +8,25 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script>
     $(document).ready(function () {
+        $("#Country").blur(function () {
 
+            alert($("#Country").val());
+            $.ajax({
+                type: "get",
+                url: 'http://192.168.29.93:96/Service1.svc/GetState',
+                data:'{"Country":"'+$("#Country").val()+'"}',
+                contentType: "application/json;charset=utf-8",
+                dataType:"jsonp",
+                success: function (response) {
+                    //$("#State").empty();
+                    //$("#State").append(response);
+                    alert(response.length);
+                }
+            });
 
-        $("select.input").change(function () {
+        });
+
+        @*$("select.input").change(function () {
             var list = $("#abc").val();
             var jsonObj =@Html.Raw(Json.Encode(ViewBag.D3));
             var seletedCountry = $(".input").val();
@@ -20,7 +36,7 @@
                   stateList .push(jsonObj[i]);
 
                 }
-            }
+            }*@
            // ViewBag.stateList=stateList;
         //    foreach(i in list.length)
         //{
@@ -61,7 +77,7 @@
             //}); //End of Ajax
 
 
-        });
+        //});
 
 
     });</script>
@@ -175,7 +191,7 @@
 
                 @*@Html.DropDownListFor(x => x.State, new SelectList(ViewBag.D4, "StateName", "StateName"), "select")*@
                 @*@if(ViewBag.stateList!=null){*@
-                @Html.DropDownListFor(x => x.State, new SelectList(@ViewBag.stateList, "StateName", "StateName"), "select")
+                @*Html.DropDownListFor(x => x.State, new SelectList(@ViewBag.stateList, "StateName", "StateName"), "select")*@
                 @*}*@
 
             </td>
