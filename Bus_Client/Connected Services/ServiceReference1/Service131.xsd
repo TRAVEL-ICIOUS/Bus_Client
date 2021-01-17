@@ -12,7 +12,6 @@
   <xs:element name="Insert_BusInfo" nillable="true" type="tns:Insert_BusInfo" />
   <xs:complexType name="Insert_RouteInfo">
     <xs:sequence>
-      <xs:element minOccurs="0" name="RouteCost" type="xs:int" />
       <xs:element minOccurs="0" name="RouteFrom" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RouteID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="RouteTo" nillable="true" type="xs:string" />
@@ -35,6 +34,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Busid" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="DepartureTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="RouteCost" type="xs:int" />
       <xs:element minOccurs="0" name="Routeid" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ScheduleID" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -56,4 +56,42 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Insert_availseats" nillable="true" type="tns:Insert_availseats" />
+  <xs:complexType name="CS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="StateName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CS" nillable="true" type="tns:CS" />
+  <xs:complexType name="ArrayOfCS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CS" nillable="true" type="tns:CS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCS" nillable="true" type="tns:ArrayOfCS" />
+  <xs:complexType name="ArrayOfCustomerRegistration">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerRegistration" nillable="true" type="tns:CustomerRegistration" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerRegistration" nillable="true" type="tns:ArrayOfCustomerRegistration" />
+  <xs:complexType name="CustomerRegistration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Confirm_Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Customer_type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dob" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MobileNo" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pincode" type="xs:int" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomerRegistration" nillable="true" type="tns:CustomerRegistration" />
 </xs:schema>

@@ -49,6 +49,36 @@
   <wsdl:message name="IService1_InsertSeatsAvailInfo_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertSeatsAvailInfoResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_InsertCS_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCS" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountry" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetState_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetState" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetState_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Getmobileno_InputMessage">
+    <wsdl:part name="parameters" element="tns:Getmobileno" />
+  </wsdl:message>
+  <wsdl:message name="IService1_Getmobileno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetmobilenoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCustomerResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="InsertBusInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertBusInfo" message="tns:IService1_InsertBusInfo_InputMessage" />
@@ -77,6 +107,26 @@
     <wsdl:operation name="InsertSeatsAvailInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertSeatsAvailInfo" message="tns:IService1_InsertSeatsAvailInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertSeatsAvailInfoResponse" message="tns:IService1_InsertSeatsAvailInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertCS" message="tns:IService1_InsertCS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertCSResponse" message="tns:IService1_InsertCS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetCountry" message="tns:IService1_GetCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetCountryResponse" message="tns:IService1_GetCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetState" message="tns:IService1_GetState_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetStateResponse" message="tns:IService1_GetState_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Getmobileno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/Getmobileno" message="tns:IService1_Getmobileno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetmobilenoResponse" message="tns:IService1_Getmobileno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertCustomer" message="tns:IService1_InsertCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertCustomerResponse" message="tns:IService1_InsertCustomer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -137,6 +187,51 @@
     </wsdl:operation>
     <wsdl:operation name="InsertSeatsAvailInfo">
       <soap:operation soapAction="http://tempuri.org/IService1/InsertSeatsAvailInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCS">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertCS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountry">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetState">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Getmobileno">
+      <soap:operation soapAction="http://tempuri.org/IService1/Getmobileno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCustomer">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertCustomer" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

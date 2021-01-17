@@ -116,9 +116,6 @@ namespace Bus_Client.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int RouteCostField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RouteFromField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -134,19 +131,6 @@ namespace Bus_Client.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int RouteCost {
-            get {
-                return this.RouteCostField;
-            }
-            set {
-                if ((this.RouteCostField.Equals(value) != true)) {
-                    this.RouteCostField = value;
-                    this.RaisePropertyChanged("RouteCost");
-                }
             }
         }
         
@@ -215,6 +199,9 @@ namespace Bus_Client.ServiceReference1 {
         private System.TimeSpan DepartureTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RouteCostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RouteidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -252,6 +239,19 @@ namespace Bus_Client.ServiceReference1 {
                 if ((this.DepartureTimeField.Equals(value) != true)) {
                     this.DepartureTimeField = value;
                     this.RaisePropertyChanged("DepartureTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RouteCost {
+            get {
+                return this.RouteCostField;
+            }
+            set {
+                if ((this.RouteCostField.Equals(value) != true)) {
+                    this.RouteCostField = value;
+                    this.RaisePropertyChanged("RouteCost");
                 }
             }
         }
@@ -401,6 +401,320 @@ namespace Bus_Client.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CS", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes")]
+    [System.SerializableAttribute()]
+    public partial class CS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountryNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CountryName {
+            get {
+                return this.CountryNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountryNameField, value) != true)) {
+                    this.CountryNameField = value;
+                    this.RaisePropertyChanged("CountryName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StateName {
+            get {
+                return this.StateNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateNameField, value) != true)) {
+                    this.StateNameField = value;
+                    this.RaisePropertyChanged("StateName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerRegistration", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes")]
+    [System.SerializableAttribute()]
+    public partial class CustomerRegistration : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Confirm_PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CountryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CustomerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Customer_typeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DobField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GenderField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int MobileNoField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PincodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Confirm_Password {
+            get {
+                return this.Confirm_PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Confirm_PasswordField, value) != true)) {
+                    this.Confirm_PasswordField = value;
+                    this.RaisePropertyChanged("Confirm_Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Country {
+            get {
+                return this.CountryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CountryField, value) != true)) {
+                    this.CountryField = value;
+                    this.RaisePropertyChanged("Country");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int CustomerId {
+            get {
+                return this.CustomerIdField;
+            }
+            set {
+                if ((this.CustomerIdField.Equals(value) != true)) {
+                    this.CustomerIdField = value;
+                    this.RaisePropertyChanged("CustomerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Customer_type {
+            get {
+                return this.Customer_typeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Customer_typeField, value) != true)) {
+                    this.Customer_typeField = value;
+                    this.RaisePropertyChanged("Customer_type");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Dob {
+            get {
+                return this.DobField;
+            }
+            set {
+                if ((this.DobField.Equals(value) != true)) {
+                    this.DobField = value;
+                    this.RaisePropertyChanged("Dob");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Gender {
+            get {
+                return this.GenderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GenderField, value) != true)) {
+                    this.GenderField = value;
+                    this.RaisePropertyChanged("Gender");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int MobileNo {
+            get {
+                return this.MobileNoField;
+            }
+            set {
+                if ((this.MobileNoField.Equals(value) != true)) {
+                    this.MobileNoField = value;
+                    this.RaisePropertyChanged("MobileNo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Pincode {
+            get {
+                return this.PincodeField;
+            }
+            set {
+                if ((this.PincodeField.Equals(value) != true)) {
+                    this.PincodeField = value;
+                    this.RaisePropertyChanged("Pincode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateField, value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -446,6 +760,36 @@ namespace Bus_Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertSeatsAvailInfo", ReplyAction="http://tempuri.org/IService1/InsertSeatsAvailInfoResponse")]
         System.Threading.Tasks.Task<string> InsertSeatsAvailInfoAsync(Bus_Client.ServiceReference1.Insert_availseats A);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCS", ReplyAction="http://tempuri.org/IService1/InsertCSResponse")]
+        string InsertCS(Bus_Client.ServiceReference1.CS Co);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCS", ReplyAction="http://tempuri.org/IService1/InsertCSResponse")]
+        System.Threading.Tasks.Task<string> InsertCSAsync(Bus_Client.ServiceReference1.CS Co);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCountry", ReplyAction="http://tempuri.org/IService1/GetCountryResponse")]
+        Bus_Client.ServiceReference1.CS[] GetCountry();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCountry", ReplyAction="http://tempuri.org/IService1/GetCountryResponse")]
+        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetCountryAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetState", ReplyAction="http://tempuri.org/IService1/GetStateResponse")]
+        Bus_Client.ServiceReference1.CS[] GetState();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetState", ReplyAction="http://tempuri.org/IService1/GetStateResponse")]
+        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetStateAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Getmobileno", ReplyAction="http://tempuri.org/IService1/GetmobilenoResponse")]
+        Bus_Client.ServiceReference1.CustomerRegistration[] Getmobileno();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Getmobileno", ReplyAction="http://tempuri.org/IService1/GetmobilenoResponse")]
+        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CustomerRegistration[]> GetmobilenoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCustomer", ReplyAction="http://tempuri.org/IService1/InsertCustomerResponse")]
+        string InsertCustomer(Bus_Client.ServiceReference1.CustomerRegistration Cr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCustomer", ReplyAction="http://tempuri.org/IService1/InsertCustomerResponse")]
+        System.Threading.Tasks.Task<string> InsertCustomerAsync(Bus_Client.ServiceReference1.CustomerRegistration Cr);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -529,6 +873,46 @@ namespace Bus_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> InsertSeatsAvailInfoAsync(Bus_Client.ServiceReference1.Insert_availseats A) {
             return base.Channel.InsertSeatsAvailInfoAsync(A);
+        }
+        
+        public string InsertCS(Bus_Client.ServiceReference1.CS Co) {
+            return base.Channel.InsertCS(Co);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertCSAsync(Bus_Client.ServiceReference1.CS Co) {
+            return base.Channel.InsertCSAsync(Co);
+        }
+        
+        public Bus_Client.ServiceReference1.CS[] GetCountry() {
+            return base.Channel.GetCountry();
+        }
+        
+        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetCountryAsync() {
+            return base.Channel.GetCountryAsync();
+        }
+        
+        public Bus_Client.ServiceReference1.CS[] GetState() {
+            return base.Channel.GetState();
+        }
+        
+        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetStateAsync() {
+            return base.Channel.GetStateAsync();
+        }
+        
+        public Bus_Client.ServiceReference1.CustomerRegistration[] Getmobileno() {
+            return base.Channel.Getmobileno();
+        }
+        
+        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CustomerRegistration[]> GetmobilenoAsync() {
+            return base.Channel.GetmobilenoAsync();
+        }
+        
+        public string InsertCustomer(Bus_Client.ServiceReference1.CustomerRegistration Cr) {
+            return base.Channel.InsertCustomer(Cr);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertCustomerAsync(Bus_Client.ServiceReference1.CustomerRegistration Cr) {
+            return base.Channel.InsertCustomerAsync(Cr);
         }
     }
 }

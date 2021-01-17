@@ -145,6 +145,12 @@
     <Content Include="Connected Services\ServiceReference1\Bus_Client.ServiceReference1.Insert_ScheduleInfo.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReference1\Bus_Client.ServiceReference1.CS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\Bus_Client.ServiceReference1.CustomerRegistration.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
     <None Include="Connected Services\ServiceReference1\Reference.svcmap">
@@ -231,6 +237,8 @@
     <Content Include="Views\Shared\PageMain.cshtml" />
     <Content Include="Views\Shared\PageRegistration.cshtml" />
     <Content Include="Views\Data\Availseats.cshtml" />
+    <Content Include="Views\Data\CustReg.cshtml" />
+    <Content Include="Views\Data\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

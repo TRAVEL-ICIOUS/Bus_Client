@@ -38,5 +38,14 @@ namespace Bus_Client.Models
             return s;
 
         }
+
+
+        public static string InsertCustomer(ServiceReference1.CustomerRegistration Cr)
+        {
+
+            ServiceReference1.Service1Client S = new ServiceReference1.Service1Client();
+            string s = S.InsertCustomer(Cr);
+            return s;
+        }
     }
 }

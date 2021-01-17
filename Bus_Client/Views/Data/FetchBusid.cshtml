@@ -12,19 +12,19 @@
 <table>
     <tr>
         <td>Sid</td>
-        <td>@Html.TextBoxFor(x =>x.ScheduleID)</td>
+        <td>@Html.TextBoxFor(x => x.ScheduleID)</td>
     </tr>
     <tr>
         <td>busid</td>
         <td>
-            @Html.DropDownListFor(x =>x.Busid,new SelectList(ViewBag.D,"BusID","BusName"),"select")
+            @Html.DropDownListFor(x => x.Busid, new SelectList(ViewBag.D, "BusID", "BusName"), "select")
 
         </td>
     </tr>
     <tr>
         <td>routeid</td>
         <td>
-            @Html.DropDownListFor(x =>x.Routeid,new SelectList(ViewBag.D1,"Value","Text"),"select")
+            @Html.DropDownListFor(x => x.Routeid, new SelectList(ViewBag.D1, "Value", "Text"), "select")
 
         </td>
     </tr>
@@ -34,6 +34,12 @@
         <td>departure time</td>
         <td>@Html.TextBoxFor(x => x.DepartureTime)</td>
     </tr>
+
+    <tr>
+        <td>Cost :</td>
+        <td>@Html.TextBoxFor(x => x.RouteCost)</td>
+    </tr>
+
     <tr>
         <td></td>
 

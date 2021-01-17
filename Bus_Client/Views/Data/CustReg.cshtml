@@ -1,0 +1,214 @@
+﻿@model Bus_Client.ServiceReference1.CustomerRegistration
+@{
+    ViewBag.Title = "CustReg";
+}
+
+<h2>CustReg</h2>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $("select.input").change(function () {
+            var list = $("#abc").val();
+            var jsonObj =@Html.Raw(Json.Encode(ViewBag.D3));
+            var seletedCountry = $(".input").val();
+            var  stateList = [];
+            for (var i = 0; i <jsonObj.length; i++) {
+                if (jsonObj[i].CountryName == seletedCountry) {
+                  stateList .push(jsonObj[i]);
+
+                }
+            }
+           // ViewBag.stateList=stateList;
+        //    foreach(i in list.length)
+        //{
+        //        if (list[i].CountryName == seletedCountry) {
+        //            stateList += list[i];
+        //        }
+        //}
+            //alert($(this).val());
+
+
+            //$.ajax({
+
+
+            //    type: "post",
+
+
+            //    url: '/Data/GetState?Country=' + $(this).val(),
+
+
+            //    contentType: "html",
+
+
+            //    success: function (response) {
+
+
+            //        $("#State").empty();
+
+
+            //        $("#State").append(response);
+
+
+
+
+
+            //    }
+
+
+            //}); //End of Ajax
+
+
+        });
+
+
+    });</script>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>Customer_ID</td>
+            <td>
+                @Html.TextBoxFor(x => x.CustomerId)
+            </td>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td>
+                @Html.TextBoxFor(x => x.Name)
+            </td>
+        </tr>
+
+        <tr>
+            <td>DOB</td>
+            <td>
+                @Html.TextBoxFor(x => x.Dob)
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                Gender
+            </td>
+            <td>
+                @Html.DropDownListFor(x => x.Gender, new List<SelectListItem>
+        {
+              new SelectListItem{Text="Select",Value="-1"},
+            new SelectListItem{Text="Male",Value="Male"},
+              new SelectListItem{Text="Female",Value="Female"},
+                new SelectListItem{Text="Trans",Value="Trans"}
+        })
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Customer Type
+            </td>
+
+            <td>
+                @Html.DropDownListFor(x => x.Customer_type, new List<SelectListItem>
+        {
+              new SelectListItem{Text="Select",Value="-1"},
+            new SelectListItem{Text="VIP(Government Officers)",Value="VIP"},
+              new SelectListItem{Text="Others",Value="others"},
+
+        })
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>
+                Mobile No.
+            </td>
+            <td> @Html.TextBoxFor(x => x.MobileNo)</td>
+        </tr>
+
+        <tr>
+            <td>
+                Email
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Email)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                password
+            </td>
+            <td> @Html.PasswordFor(x => x.Password)</td>
+        </tr>
+
+        <tr>
+            <td>
+                Confirm Password
+            </td>
+            <td>
+                @Html.PasswordFor(x => x.Confirm_Password)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Country
+            </td>
+            <td>
+
+                @Html.DropDownListFor(x => x.Country, new SelectList(ViewBag.D3, "CountryName", "CountryName"), "select", new { @class = "input" })
+                @*<input type="hidden" id="abc"  value='@ViewBag.D3' />*@
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                State
+            </td>
+            <td>
+
+                @*@Html.DropDownListFor(x => x.State, new SelectList(ViewBag.D4, "StateName", "StateName"), "select")*@
+                @*@if(ViewBag.stateList!=null){*@
+                @Html.DropDownListFor(x => x.State, new SelectList(@ViewBag.stateList, "StateName", "StateName"), "select")
+                @*}*@
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                City
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.City)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Pincode
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Pincode)
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" /></td>
+        </tr>
+    </table>
+
+    if (ViewBag.msg != null)
+    {
+        @ViewBag.msg
+    }
+}
+
+
+
+   }
