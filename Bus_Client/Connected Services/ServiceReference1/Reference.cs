@@ -512,7 +512,7 @@ namespace Bus_Client.ServiceReference1 {
         private string GenderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int MobileNoField;
+        private long MobileNoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -641,7 +641,7 @@ namespace Bus_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int MobileNo {
+        public long MobileNo {
             get {
                 return this.MobileNoField;
             }
@@ -796,6 +796,12 @@ namespace Bus_Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertCustomer", ReplyAction="http://tempuri.org/IService1/InsertCustomerResponse")]
         System.Threading.Tasks.Task<string> InsertCustomerAsync(Bus_Client.ServiceReference1.CustomerRegistration Cr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Userlogin", ReplyAction="http://tempuri.org/IService1/UserloginResponse")]
+        Bus_Client.ServiceReference1.CustomerRegistration Userlogin(long Username, string Password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Userlogin", ReplyAction="http://tempuri.org/IService1/UserloginResponse")]
+        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CustomerRegistration> UserloginAsync(long Username, string Password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -927,6 +933,14 @@ namespace Bus_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> InsertCustomerAsync(Bus_Client.ServiceReference1.CustomerRegistration Cr) {
             return base.Channel.InsertCustomerAsync(Cr);
+        }
+        
+        public Bus_Client.ServiceReference1.CustomerRegistration Userlogin(long Username, string Password) {
+            return base.Channel.Userlogin(Username, Password);
+        }
+        
+        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CustomerRegistration> UserloginAsync(long Username, string Password) {
+            return base.Channel.UserloginAsync(Username, Password);
         }
     }
 }

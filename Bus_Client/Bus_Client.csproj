@@ -243,6 +243,8 @@
     <Content Include="Views\Shared\PageDemo.cshtml" />
     <Content Include="Views\Shared\PageBackAdmin.cshtml" />
     <Content Include="Views\Shared\PageBackCustomer.cshtml" />
+    <Content Include="Views\Data\GetLoginC.cshtml" />
+    <Content Include="Views\Data\CustomerHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

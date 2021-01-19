@@ -80,7 +80,7 @@
       <xs:element minOccurs="0" name="Dob" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MobileNo" type="xs:int" />
+      <xs:element minOccurs="0" name="MobileNo" type="xs:long" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Pincode" type="xs:int" />

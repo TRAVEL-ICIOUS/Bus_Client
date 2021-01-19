@@ -147,6 +147,7 @@ namespace Bus_Client.Controllers
         public ActionResult CustReg(ServiceReference1.CustomerRegistration Cr)
         {
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+        
 
             ViewBag.D3 = countries;
            // ViewBag.D4 = states;
@@ -156,36 +157,58 @@ namespace Bus_Client.Controllers
            
         }
 
-       public ActionResult Login()
+        public ActionResult  GetLoginC()
         {
-            ServiceReference1.CustomerRegistration Re1 = new ServiceReference1.CustomerRegistration();
-
-            ServiceReference1.CustomerRegistration c = new ServiceReference1.CustomerRegistration();
-            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
-            U = s.Getmobileno();
-            ViewBag.D5 = U;
-
-            ServiceReference1.CustomerRegistration c1 = new ServiceReference1.CustomerRegistration();
-            ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
-            P = s1.Getmobileno();
-            ViewBag.D6 = P;
-            return View(Re1);
-        }
-        [HttpPost]
-        public ActionResult Login(ServiceReference1.CustomerRegistration L)
-        {
-            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
-
-            string user = Request.Form["Username"];
-            string pass = Request.Form["Password"];
-
-            ViewBag.D3 = countries;
-            ViewBag.D4 = states;
-
-            //ViewBag.msg = DbOperations.InsertCustomer(Cr);
-        
             return View();
         }
+        [HttpPost]
+        public ActionResult GetLoginC(ServiceReference1.CustomerRegistration V)
+        {
+            //ServiceReference1.CustomerRegistration Re1 = new ServiceReference1.CustomerRegistration();
+            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+            ViewBag.D4 = s.Userlogin(V.MobileNo, V.Password);
+
+            string Username = Request.Form["MobileNo"];
+            string Password = Request.Form["Password"];
+            string CustomerId = Request.Form["CustomerId"];
+
+            if (ViewBag.D4 != null)
+            {
+                Session["Username"] = ViewBag.D4.MobileNo;
+                Session["CustomerId"] = ViewBag.D4.CustomerId;
+                return View("CustomerHome");
+            }
+            else
+            {
+                ViewBag.msg = "Invalid credentials";
+                return View("GetLoginC");
+            }
+           
+
+            
+
+         }
+
+
+        public ActionResult CustomerHome()
+        {
+            return View();
+        }
+
+        public ActionResult AdminHome()
+        {
+            return View();
+        }
+        public ActionResult Logout()
+        {
+            if (Session["Username"] != null)
+            {
+                Session.Abandon();
+                Session.Clear();
+            }
+            return View("GetLoginC");
+        }
+
         public JsonResult GetStateList(string Country)
         {
 
