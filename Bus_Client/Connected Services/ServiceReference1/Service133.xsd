@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://192.168.29.93:96/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost:62695/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
   <xs:complexType name="Insert_BusInfo">
     <xs:sequence>
-      <xs:element minOccurs="0" name="BusID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusID" type="xs:int" />
       <xs:element minOccurs="0" name="BusName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="BusOrgCapacity" type="xs:int" />
       <xs:element minOccurs="0" name="BusType" nillable="true" type="xs:string" />
@@ -13,7 +13,7 @@
   <xs:complexType name="Insert_RouteInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="RouteFrom" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RouteID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteID" type="xs:int" />
       <xs:element minOccurs="0" name="RouteTo" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
@@ -32,14 +32,12 @@
   <xs:element name="ArrayOfInsert_RouteInfo" nillable="true" type="tns:ArrayOfInsert_RouteInfo" />
   <xs:complexType name="Insert_ScheduleInfo">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Busid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Busid" type="xs:int" />
       <xs:element minOccurs="0" name="DepartureTime" type="ser:duration" />
       <xs:element minOccurs="0" name="RouteCost" type="xs:int" />
-      <xs:element minOccurs="0" name="Routeid" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ScheduleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Routeid" type="xs:int" />
+      <xs:element minOccurs="0" name="ScheduleID" type="xs:int" />
     </xs:sequence>
-    <xs:attribute ref="ser:Id" />
-    <xs:attribute ref="ser:Ref" />
   </xs:complexType>
   <xs:element name="Insert_ScheduleInfo" nillable="true" type="tns:Insert_ScheduleInfo" />
   <xs:complexType name="ArrayOfInsert_ScheduleInfo">
@@ -54,7 +52,7 @@
       <xs:element minOccurs="0" name="AvailableSeats" type="xs:int" />
       <xs:element minOccurs="0" name="DoJ" nillable="true" type="xs:dateTime" />
       <xs:element minOccurs="0" name="GeneralSeats" type="xs:int" />
-      <xs:element minOccurs="0" name="ScheduleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleID" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Insert_availseats" nillable="true" type="tns:Insert_availseats" />
@@ -66,12 +64,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CS" nillable="true" type="tns:CS" />
-  <xs:complexType name="ArrayOfCS">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="CS" nillable="true" type="tns:CS" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfCS" nillable="true" type="tns:ArrayOfCS" />
   <xs:complexType name="ArrayOfCustomerRegistration">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerRegistration" nillable="true" type="tns:CustomerRegistration" />

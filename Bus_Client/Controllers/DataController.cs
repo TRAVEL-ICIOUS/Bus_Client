@@ -14,8 +14,11 @@ namespace Bus_Client.Controllers
         static Insert_ScheduleInfo[] As = null;
         static Insert_RouteInfo[] ri = null;
         static List<SelectListItem> L = new List<SelectListItem>();
-        static CS[] cy = null;
-        static CS[] st = null;
+
+        static List<SelectListItem> states = null;
+        static List<SelectListItem> countries = null;
+
+        
         static CustomerRegistration[] U = null;
         static CustomerRegistration[] P = null;
 
@@ -71,7 +74,7 @@ namespace Bus_Client.Controllers
             
             foreach(Insert_RouteInfo i in ri)
             {
-                L.Add(new SelectListItem { Text = i.RouteFrom + "-" + i.RouteTo, Value =i.RouteID });
+                L.Add(new SelectListItem { Text = i.RouteFrom + "-" + i.RouteTo, Value=i.RouteID.ToString() });
 
             }
            
@@ -95,8 +98,8 @@ namespace Bus_Client.Controllers
         {
             ServiceReference1.Insert_ScheduleInfo B = new ServiceReference1.Insert_ScheduleInfo();
             ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
-            As = s1.GetScheduleId();
-            ViewBag.D2 = As;
+            //As = 
+            ViewBag.D2 = s1.getSecId();
             ServiceReference1.Insert_availseats A1 = new ServiceReference1.Insert_availseats();
             return View(A1);
 
@@ -119,8 +122,13 @@ namespace Bus_Client.Controllers
 
             ServiceReference1.CS c = new ServiceReference1.CS();
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
-            cy = s.GetCountry();
-            ViewBag.D3 = cy;
+            string []cy = s.GetCountry();
+            countries = new List<SelectListItem>();
+            for (int i = 0; i < cy.Length; i++)
+            {
+                countries.Add(new SelectListItem { Text = cy[i], Value = cy[i] });
+            }
+            ViewBag.D3 = countries;
             Session["Country"] = cy;
 
 
@@ -140,8 +148,8 @@ namespace Bus_Client.Controllers
         {
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
 
-            ViewBag.D3 = cy;
-            ViewBag.D4 = st;
+            ViewBag.D3 = countries;
+           // ViewBag.D4 = states;
          
             ViewBag.msg = DbOperations.InsertCustomer(Cr);
             return View();
@@ -171,14 +179,30 @@ namespace Bus_Client.Controllers
             string user = Request.Form["Username"];
             string pass = Request.Form["Password"];
 
-            ViewBag.D3 = cy;
-            ViewBag.D4 = st;
+            ViewBag.D3 = countries;
+            ViewBag.D4 = states;
 
             //ViewBag.msg = DbOperations.InsertCustomer(Cr);
         
             return View();
         }
+        public JsonResult GetStateList(string Country)
+        {
 
+            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+            string []st = s.GetState(Country);
+            ViewBag.D3 = countries;
+            states = new List<SelectListItem>();
+            for (int i = 0; i < st.Length; i++)
+            {
+                states.Add(new SelectListItem { Text = st[i], Value = st[i] });
+            }
+
+
+            ViewBag.D4 = states;
+            //Session["Country"] = cy;
+            return Json(states,JsonRequestBehavior.AllowGet);
+        }
 
     }
     }

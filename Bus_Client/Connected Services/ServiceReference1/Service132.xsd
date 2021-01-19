@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://192.168.29.93:96/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" />
+  <xs:import schemaLocation="http://localhost:62695/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" />
+  <xs:import schemaLocation="http://localhost:62695/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="InsertBusInfo">
     <xs:complexType>
       <xs:sequence>
@@ -79,10 +80,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="getSecId">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getSecIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="getSecIdResult" nillable="true" type="q7:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="InsertSeatsAvailInfo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="A" nillable="true" type="q7:Insert_availseats" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="A" nillable="true" type="q8:Insert_availseats" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -96,7 +109,7 @@
   <xs:element name="InsertCS">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="Co" nillable="true" type="q8:CS" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="Co" nillable="true" type="q9:CS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -115,7 +128,7 @@
   <xs:element name="GetCountryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="GetCountryResult" nillable="true" type="q9:ArrayOfCS" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetCountryResult" nillable="true" type="q10:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -129,7 +142,7 @@
   <xs:element name="GetStateResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="GetStateResult" nillable="true" type="q10:ArrayOfCS" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetStateResult" nillable="true" type="q11:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -141,14 +154,14 @@
   <xs:element name="GetmobilenoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="GetmobilenoResult" nillable="true" type="q11:ArrayOfCustomerRegistration" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="GetmobilenoResult" nillable="true" type="q12:ArrayOfCustomerRegistration" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertCustomer">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="Cr" nillable="true" type="q12:CustomerRegistration" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="Cr" nillable="true" type="q13:CustomerRegistration" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

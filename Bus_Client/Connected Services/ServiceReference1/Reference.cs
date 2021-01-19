@@ -23,7 +23,7 @@ namespace Bus_Client.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BusIDField;
+        private int BusIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string BusNameField;
@@ -45,12 +45,12 @@ namespace Bus_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string BusID {
+        public int BusID {
             get {
                 return this.BusIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.BusIDField, value) != true)) {
+                if ((this.BusIDField.Equals(value) != true)) {
                     this.BusIDField = value;
                     this.RaisePropertyChanged("BusID");
                 }
@@ -119,7 +119,7 @@ namespace Bus_Client.ServiceReference1 {
         private string RouteFromField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RouteIDField;
+        private int RouteIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string RouteToField;
@@ -148,12 +148,12 @@ namespace Bus_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RouteID {
+        public int RouteID {
             get {
                 return this.RouteIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.RouteIDField, value) != true)) {
+                if ((this.RouteIDField.Equals(value) != true)) {
                     this.RouteIDField = value;
                     this.RaisePropertyChanged("RouteID");
                 }
@@ -185,7 +185,7 @@ namespace Bus_Client.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Insert_ScheduleInfo", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes", IsReference=true)]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Insert_ScheduleInfo", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes")]
     [System.SerializableAttribute()]
     public partial class Insert_ScheduleInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -193,7 +193,7 @@ namespace Bus_Client.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string BusidField;
+        private int BusidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.TimeSpan DepartureTimeField;
@@ -202,10 +202,10 @@ namespace Bus_Client.ServiceReference1 {
         private int RouteCostField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RouteidField;
+        private int RouteidField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ScheduleIDField;
+        private int ScheduleIDField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -218,12 +218,12 @@ namespace Bus_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Busid {
+        public int Busid {
             get {
                 return this.BusidField;
             }
             set {
-                if ((object.ReferenceEquals(this.BusidField, value) != true)) {
+                if ((this.BusidField.Equals(value) != true)) {
                     this.BusidField = value;
                     this.RaisePropertyChanged("Busid");
                 }
@@ -257,12 +257,12 @@ namespace Bus_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Routeid {
+        public int Routeid {
             get {
                 return this.RouteidField;
             }
             set {
-                if ((object.ReferenceEquals(this.RouteidField, value) != true)) {
+                if ((this.RouteidField.Equals(value) != true)) {
                     this.RouteidField = value;
                     this.RaisePropertyChanged("Routeid");
                 }
@@ -270,12 +270,12 @@ namespace Bus_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ScheduleID {
+        public int ScheduleID {
             get {
                 return this.ScheduleIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.ScheduleIDField, value) != true)) {
+                if ((this.ScheduleIDField.Equals(value) != true)) {
                     this.ScheduleIDField = value;
                     this.RaisePropertyChanged("ScheduleID");
                 }
@@ -314,7 +314,7 @@ namespace Bus_Client.ServiceReference1 {
         private int GeneralSeatsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ScheduleIDField;
+        private int ScheduleIDField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -379,12 +379,12 @@ namespace Bus_Client.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ScheduleID {
+        public int ScheduleID {
             get {
                 return this.ScheduleIDField;
             }
             set {
-                if ((object.ReferenceEquals(this.ScheduleIDField, value) != true)) {
+                if ((this.ScheduleIDField.Equals(value) != true)) {
                     this.ScheduleIDField = value;
                     this.RaisePropertyChanged("ScheduleID");
                 }
@@ -755,6 +755,12 @@ namespace Bus_Client.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetScheduleId", ReplyAction="http://tempuri.org/IService1/GetScheduleIdResponse")]
         System.Threading.Tasks.Task<Bus_Client.ServiceReference1.Insert_ScheduleInfo[]> GetScheduleIdAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getSecId", ReplyAction="http://tempuri.org/IService1/getSecIdResponse")]
+        int[] getSecId();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/getSecId", ReplyAction="http://tempuri.org/IService1/getSecIdResponse")]
+        System.Threading.Tasks.Task<int[]> getSecIdAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertSeatsAvailInfo", ReplyAction="http://tempuri.org/IService1/InsertSeatsAvailInfoResponse")]
         string InsertSeatsAvailInfo(Bus_Client.ServiceReference1.Insert_availseats A);
         
@@ -768,16 +774,16 @@ namespace Bus_Client.ServiceReference1 {
         System.Threading.Tasks.Task<string> InsertCSAsync(Bus_Client.ServiceReference1.CS Co);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCountry", ReplyAction="http://tempuri.org/IService1/GetCountryResponse")]
-        Bus_Client.ServiceReference1.CS[] GetCountry();
+        string[] GetCountry();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCountry", ReplyAction="http://tempuri.org/IService1/GetCountryResponse")]
-        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetCountryAsync();
+        System.Threading.Tasks.Task<string[]> GetCountryAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetState", ReplyAction="http://tempuri.org/IService1/GetStateResponse")]
-        Bus_Client.ServiceReference1.CS[] GetState(string Country);
+        string[] GetState(string Country);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetState", ReplyAction="http://tempuri.org/IService1/GetStateResponse")]
-        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetStateAsync(string Country);
+        System.Threading.Tasks.Task<string[]> GetStateAsync(string Country);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Getmobileno", ReplyAction="http://tempuri.org/IService1/GetmobilenoResponse")]
         Bus_Client.ServiceReference1.CustomerRegistration[] Getmobileno();
@@ -867,6 +873,14 @@ namespace Bus_Client.ServiceReference1 {
             return base.Channel.GetScheduleIdAsync();
         }
         
+        public int[] getSecId() {
+            return base.Channel.getSecId();
+        }
+        
+        public System.Threading.Tasks.Task<int[]> getSecIdAsync() {
+            return base.Channel.getSecIdAsync();
+        }
+        
         public string InsertSeatsAvailInfo(Bus_Client.ServiceReference1.Insert_availseats A) {
             return base.Channel.InsertSeatsAvailInfo(A);
         }
@@ -883,19 +897,19 @@ namespace Bus_Client.ServiceReference1 {
             return base.Channel.InsertCSAsync(Co);
         }
         
-        public Bus_Client.ServiceReference1.CS[] GetCountry() {
+        public string[] GetCountry() {
             return base.Channel.GetCountry();
         }
         
-        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetCountryAsync() {
+        public System.Threading.Tasks.Task<string[]> GetCountryAsync() {
             return base.Channel.GetCountryAsync();
         }
         
-        public Bus_Client.ServiceReference1.CS[] GetState(string Country) {
+        public string[] GetState(string Country) {
             return base.Channel.GetState(Country);
         }
         
-        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CS[]> GetStateAsync(string Country) {
+        public System.Threading.Tasks.Task<string[]> GetStateAsync(string Country) {
             return base.Channel.GetStateAsync(Country);
         }
         

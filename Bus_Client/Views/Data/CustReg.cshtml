@@ -8,79 +8,27 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script>
     $(document).ready(function () {
-        $("#Country").blur(function () {
+        $("#Country").change(function () {
 
-            alert($("#Country").val());
-            $.ajax({
-                type: "get",
-                url: 'http://192.168.29.93:96/Service1.svc/GetState',
-                data:'{"Country":"'+$("#Country").val()+'"}',
-                contentType: "application/json;charset=utf-8",
-                dataType:"jsonp",
-                success: function (response) {
-                    //$("#State").empty();
-                    //$("#State").append(response);
-                    alert(response.length);
-                }
+            var CountryId = parseInt($(this).val());  
+            $.get("/Data/GetStateList", {
+                Country: $("#Country").val()
+            }, function (data) {
+                    $("#State").empty();
+                    $("#State").append("<option value='-1'>---Select---</option>");
+                    $.each(data, function (index, row)
+                    {
+                        $("#State").append("<option value='>" + row.Text + "'>" + row.Value+"</option>")
+                    })   
             });
+
+            });
+
 
         });
 
-        @*$("select.input").change(function () {
-            var list = $("#abc").val();
-            var jsonObj =@Html.Raw(Json.Encode(ViewBag.D3));
-            var seletedCountry = $(".input").val();
-            var  stateList = [];
-            for (var i = 0; i <jsonObj.length; i++) {
-                if (jsonObj[i].CountryName == seletedCountry) {
-                  stateList .push(jsonObj[i]);
-
-                }
-            }*@
-           // ViewBag.stateList=stateList;
-        //    foreach(i in list.length)
-        //{
-        //        if (list[i].CountryName == seletedCountry) {
-        //            stateList += list[i];
-        //        }
-        //}
-            //alert($(this).val());
-
-
-            //$.ajax({
-
-
-            //    type: "post",
-
-
-            //    url: '/Data/GetState?Country=' + $(this).val(),
-
-
-            //    contentType: "html",
-
-
-            //    success: function (response) {
-
-
-            //        $("#State").empty();
-
-
-            //        $("#State").append(response);
-
-
-
-
-
-            //    }
-
-
-            //}); //End of Ajax
-
-
-        //});
-
-
-    });</script>
+    
+    </script>
 
 @using (Html.BeginForm())
 {
@@ -178,7 +126,7 @@
             </td>
             <td>
 
-                @Html.DropDownListFor(x => x.Country, new SelectList(ViewBag.D3, "CountryName", "CountryName"), "select", new { @class = "input" })
+                @Html.DropDownListFor(x => x.Country, (IEnumerable<SelectListItem>)ViewBag.D3, "select", new { @class = "input" })
                 @*<input type="hidden" id="abc"  value='@ViewBag.D3' />*@
             </td>
         </tr>
@@ -189,10 +137,10 @@
             </td>
             <td>
 
-                @*@Html.DropDownListFor(x => x.State, new SelectList(ViewBag.D4, "StateName", "StateName"), "select")*@
-                @*@if(ViewBag.stateList!=null){*@
-                @*Html.DropDownListFor(x => x.State, new SelectList(@ViewBag.stateList, "StateName", "StateName"), "select")*@
-                @*}*@
+                @Html.DropDownListFor(x=>x.State, new SelectList(" "),"select")
+               @*@if(ViewBag.D4!=null){
+                @Html.DropDownListFor(x => x.State, new SelectList(ViewBag.D4,"Value","Text"), "select")
+                }*@
 
             </td>
         </tr>
