@@ -18,11 +18,17 @@ namespace Bus_Client.Controllers
         static List<SelectListItem> states = null;
         static List<SelectListItem> countries = null;
 
-        
+        static List<SelectListItem> Tos = null;
+        static List<SelectListItem> Froms = null;
+        static List<SelectListItem> Bookid = null;
+
+
         static CustomerRegistration[] U = null;
         static CustomerRegistration[] P = null;
 
         
+
+
 
         // GET: Data
         public ActionResult Main()
@@ -143,6 +149,15 @@ namespace Bus_Client.Controllers
             return View(Re);
                    
         }
+        public ActionResult FetchData()
+        {
+
+            return View();
+        }
+
+
+
+
         [HttpPost]
         public ActionResult CustReg(ServiceReference1.CustomerRegistration Cr)
         {
@@ -156,6 +171,18 @@ namespace Bus_Client.Controllers
             return View();
            
         }
+
+        public ActionResult CancelTicket()
+        {
+           
+            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+            //int Cid = Convert.ToInt32(Session["CustomerId"]);
+            int Cid = 2021016169;
+            ViewBag.Bookid = s.GetTicketId(Cid);
+            return View();
+
+        }
+        
 
         public ActionResult  GetLoginC()
         {
@@ -188,6 +215,8 @@ namespace Bus_Client.Controllers
             
 
          }
+
+
 
 
         public ActionResult CustomerHome()
@@ -225,6 +254,69 @@ namespace Bus_Client.Controllers
             ViewBag.D4 = states;
             //Session["Country"] = cy;
             return Json(states,JsonRequestBehavior.AllowGet);
+        }
+
+
+        //Ticket booking
+
+        public ActionResult Ticketbooking()
+        {
+            ServiceReference1.Insert_RouteInfo R = new ServiceReference1.Insert_RouteInfo();
+
+            ServiceReference1.TicketBooking c = new ServiceReference1.TicketBooking();
+            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+            string[] gf = s.GetFrom();
+           Froms = new List<SelectListItem>();
+            for (int i = 0; i < gf.Length; i++)
+            {
+                Froms.Add(new SelectListItem { Text = gf[i], Value = gf[i] });
+            }
+            ViewBag.D6 = Froms;
+            Session["Froms"] = gf;
+            return View(c);
+
+        }
+        [HttpPost]
+        public ActionResult Ticketbooking(ServiceReference1.TicketBooking Tb)
+        {
+            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+
+
+            List<ExtractBookingDetails> L = s.GetExtractBookings(Tb.RFrom, Tb.RTo, Tb.NoOfTicketBooked).ToList();
+
+            ViewBag.TList = L;
+            
+            ViewBag.D6 = Froms;
+
+            //// ViewBag.D4 = states;
+
+            //ViewBag.msg = DbOperations.InsertTicketbooked(Tb);
+            
+            return View();
+
+        }
+        public ActionResult TicketInsert(int sid/*,int NOT*/)
+        {
+            return View();
+        }
+
+
+        public JsonResult GetToFetch(string RFrom)
+        {
+
+            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+            string[] gt = s.GetTo(RFrom);
+            ViewBag.D6 =Froms;
+            Tos = new List<SelectListItem>();
+            for (int i = 0; i < gt.Length; i++)
+            {
+                Tos.Add(new SelectListItem { Text = gt[i], Value = gt[i] });
+            }
+
+
+            ViewBag.D7 = Tos;
+            //Session["Country"] = cy;
+            return Json(Tos, JsonRequestBehavior.AllowGet);
         }
 
     }

@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "TicketInsert";
+}
+
+<h2>TicketInsert</h2>
+@using (Html.BeginForm("TicketInsert", "Data"))
+{
+    if (ViewBag.TList != null)
+    {
+        <table border="1" cellpadding="15" cellspacing="10">
+
+
+
+            <tr>
+                <th style="height:50px;width:80px"></th>
+                <th style="height:50px;width:80px">Bus Name</th>
+                <th style="height:50px;width:80px">Seats Available</th>
+                <th style="height:50px;width:80px">schedule Timing</th>
+                <th style="height:50px;width:80px">Total cost</th>
+
+
+
+            </tr>
+            @foreach (var row in ViewBag.TList)
+            {
+                <tr>
+                    @*<td>@Html.ActionLink("Book", "Ticketbooking", "Data", new { id = row.ScheduleID }, null)</td>*@
+                    <td style="height:50px;width:80px">@Html.RadioButton("sid", new { @row.ScheduleID })@row.ScheduleID</td>
+                    <td style="height:50px;width:80px">@row.BusName</td>
+                    <td style="height:50px;width:80px">@row.AvailableSeats</td>
+                    <td style="height:50px;width:80px">@row.DepartureTime</td>
+                    <td style="height:50px;width:80px">@row.TotalCost</td>
+
+
+
+
+                </tr>
+
+
+
+            }
+            <tr>
+                <td><input type="button" value="Book" id="search" @*onclick="location.href='@Url.Action("TicketInsert","Data",new { id="sid"})'"*@ /></td>
+            </tr>
+        </table>
+    }
+
+}

@@ -187,4 +187,74 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="InsertTicketbooked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="T" nillable="true" type="q15:TicketBooking" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertTicketbookedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertTicketbookedResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFrom">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFromResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetFromResult" nillable="true" type="q16:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTicketId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Cid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTicketIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetTicketIdResult" nillable="true" type="q17:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="From" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetToResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetToResult" nillable="true" type="q18:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExtractBookings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RouteFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RouteTo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NOT" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetExtractBookingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Bus_Service.Classes" minOccurs="0" name="GetExtractBookingsResult" nillable="true" type="q19:ArrayOfExtractBookingDetails" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

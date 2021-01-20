@@ -47,5 +47,14 @@ namespace Bus_Client.Models
             string s = S.InsertCustomer(Cr);
             return s;
         }
+
+       
+             public static string InsertTicketbooked(ServiceReference1.TicketBooking tb)
+        {
+
+            ServiceReference1.Service1Client S = new ServiceReference1.Service1Client();
+            string s = S.InsertTicketbooked(tb);
+            return s;
+        }
     }
 }

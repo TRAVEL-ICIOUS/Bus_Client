@@ -715,6 +715,352 @@ namespace Bus_Client.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TicketBooking", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes")]
+    [System.SerializableAttribute()]
+    public partial class TicketBooking : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BusidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int CustomeridField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateOfJourneyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NoOfTicketBookedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RFromField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RToField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ScheduleidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TicketIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string statusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Busid {
+            get {
+                return this.BusidField;
+            }
+            set {
+                if ((this.BusidField.Equals(value) != true)) {
+                    this.BusidField = value;
+                    this.RaisePropertyChanged("Busid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Customerid {
+            get {
+                return this.CustomeridField;
+            }
+            set {
+                if ((this.CustomeridField.Equals(value) != true)) {
+                    this.CustomeridField = value;
+                    this.RaisePropertyChanged("Customerid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateOfJourney {
+            get {
+                return this.DateOfJourneyField;
+            }
+            set {
+                if ((this.DateOfJourneyField.Equals(value) != true)) {
+                    this.DateOfJourneyField = value;
+                    this.RaisePropertyChanged("DateOfJourney");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NoOfTicketBooked {
+            get {
+                return this.NoOfTicketBookedField;
+            }
+            set {
+                if ((this.NoOfTicketBookedField.Equals(value) != true)) {
+                    this.NoOfTicketBookedField = value;
+                    this.RaisePropertyChanged("NoOfTicketBooked");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RFrom {
+            get {
+                return this.RFromField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RFromField, value) != true)) {
+                    this.RFromField = value;
+                    this.RaisePropertyChanged("RFrom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RTo {
+            get {
+                return this.RToField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RToField, value) != true)) {
+                    this.RToField = value;
+                    this.RaisePropertyChanged("RTo");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Scheduleid {
+            get {
+                return this.ScheduleidField;
+            }
+            set {
+                if ((this.ScheduleidField.Equals(value) != true)) {
+                    this.ScheduleidField = value;
+                    this.RaisePropertyChanged("Scheduleid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TicketID {
+            get {
+                return this.TicketIDField;
+            }
+            set {
+                if ((this.TicketIDField.Equals(value) != true)) {
+                    this.TicketIDField = value;
+                    this.RaisePropertyChanged("TicketID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string status {
+            get {
+                return this.statusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.statusField, value) != true)) {
+                    this.statusField = value;
+                    this.RaisePropertyChanged("status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExtractBookingDetails", Namespace="http://schemas.datacontract.org/2004/07/Bus_Service.Classes")]
+    [System.SerializableAttribute()]
+    public partial class ExtractBookingDetails : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int AvailableSeatsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BusIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BusTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.TimeSpan DepartureTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> DoJField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RouteIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ScheduleIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TotalCostField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int AvailableSeats {
+            get {
+                return this.AvailableSeatsField;
+            }
+            set {
+                if ((this.AvailableSeatsField.Equals(value) != true)) {
+                    this.AvailableSeatsField = value;
+                    this.RaisePropertyChanged("AvailableSeats");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BusID {
+            get {
+                return this.BusIDField;
+            }
+            set {
+                if ((this.BusIDField.Equals(value) != true)) {
+                    this.BusIDField = value;
+                    this.RaisePropertyChanged("BusID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusName {
+            get {
+                return this.BusNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusNameField, value) != true)) {
+                    this.BusNameField = value;
+                    this.RaisePropertyChanged("BusName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BusType {
+            get {
+                return this.BusTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BusTypeField, value) != true)) {
+                    this.BusTypeField = value;
+                    this.RaisePropertyChanged("BusType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.TimeSpan DepartureTime {
+            get {
+                return this.DepartureTimeField;
+            }
+            set {
+                if ((this.DepartureTimeField.Equals(value) != true)) {
+                    this.DepartureTimeField = value;
+                    this.RaisePropertyChanged("DepartureTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> DoJ {
+            get {
+                return this.DoJField;
+            }
+            set {
+                if ((this.DoJField.Equals(value) != true)) {
+                    this.DoJField = value;
+                    this.RaisePropertyChanged("DoJ");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RouteID {
+            get {
+                return this.RouteIDField;
+            }
+            set {
+                if ((this.RouteIDField.Equals(value) != true)) {
+                    this.RouteIDField = value;
+                    this.RaisePropertyChanged("RouteID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ScheduleID {
+            get {
+                return this.ScheduleIDField;
+            }
+            set {
+                if ((this.ScheduleIDField.Equals(value) != true)) {
+                    this.ScheduleIDField = value;
+                    this.RaisePropertyChanged("ScheduleID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TotalCost {
+            get {
+                return this.TotalCostField;
+            }
+            set {
+                if ((this.TotalCostField.Equals(value) != true)) {
+                    this.TotalCostField = value;
+                    this.RaisePropertyChanged("TotalCost");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
@@ -802,6 +1148,36 @@ namespace Bus_Client.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Userlogin", ReplyAction="http://tempuri.org/IService1/UserloginResponse")]
         System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CustomerRegistration> UserloginAsync(long Username, string Password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertTicketbooked", ReplyAction="http://tempuri.org/IService1/InsertTicketbookedResponse")]
+        string InsertTicketbooked(Bus_Client.ServiceReference1.TicketBooking T);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InsertTicketbooked", ReplyAction="http://tempuri.org/IService1/InsertTicketbookedResponse")]
+        System.Threading.Tasks.Task<string> InsertTicketbookedAsync(Bus_Client.ServiceReference1.TicketBooking T);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFrom", ReplyAction="http://tempuri.org/IService1/GetFromResponse")]
+        string[] GetFrom();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetFrom", ReplyAction="http://tempuri.org/IService1/GetFromResponse")]
+        System.Threading.Tasks.Task<string[]> GetFromAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketId", ReplyAction="http://tempuri.org/IService1/GetTicketIdResponse")]
+        int[] GetTicketId(int Cid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTicketId", ReplyAction="http://tempuri.org/IService1/GetTicketIdResponse")]
+        System.Threading.Tasks.Task<int[]> GetTicketIdAsync(int Cid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTo", ReplyAction="http://tempuri.org/IService1/GetToResponse")]
+        string[] GetTo(string From);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTo", ReplyAction="http://tempuri.org/IService1/GetToResponse")]
+        System.Threading.Tasks.Task<string[]> GetToAsync(string From);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetExtractBookings", ReplyAction="http://tempuri.org/IService1/GetExtractBookingsResponse")]
+        Bus_Client.ServiceReference1.ExtractBookingDetails[] GetExtractBookings(string RouteFrom, string RouteTo, int NOT);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetExtractBookings", ReplyAction="http://tempuri.org/IService1/GetExtractBookingsResponse")]
+        System.Threading.Tasks.Task<Bus_Client.ServiceReference1.ExtractBookingDetails[]> GetExtractBookingsAsync(string RouteFrom, string RouteTo, int NOT);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -941,6 +1317,46 @@ namespace Bus_Client.ServiceReference1 {
         
         public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.CustomerRegistration> UserloginAsync(long Username, string Password) {
             return base.Channel.UserloginAsync(Username, Password);
+        }
+        
+        public string InsertTicketbooked(Bus_Client.ServiceReference1.TicketBooking T) {
+            return base.Channel.InsertTicketbooked(T);
+        }
+        
+        public System.Threading.Tasks.Task<string> InsertTicketbookedAsync(Bus_Client.ServiceReference1.TicketBooking T) {
+            return base.Channel.InsertTicketbookedAsync(T);
+        }
+        
+        public string[] GetFrom() {
+            return base.Channel.GetFrom();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetFromAsync() {
+            return base.Channel.GetFromAsync();
+        }
+        
+        public int[] GetTicketId(int Cid) {
+            return base.Channel.GetTicketId(Cid);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> GetTicketIdAsync(int Cid) {
+            return base.Channel.GetTicketIdAsync(Cid);
+        }
+        
+        public string[] GetTo(string From) {
+            return base.Channel.GetTo(From);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetToAsync(string From) {
+            return base.Channel.GetToAsync(From);
+        }
+        
+        public Bus_Client.ServiceReference1.ExtractBookingDetails[] GetExtractBookings(string RouteFrom, string RouteTo, int NOT) {
+            return base.Channel.GetExtractBookings(RouteFrom, RouteTo, NOT);
+        }
+        
+        public System.Threading.Tasks.Task<Bus_Client.ServiceReference1.ExtractBookingDetails[]> GetExtractBookingsAsync(string RouteFrom, string RouteTo, int NOT) {
+            return base.Channel.GetExtractBookingsAsync(RouteFrom, RouteTo, NOT);
         }
     }
 }

@@ -88,4 +88,38 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CustomerRegistration" nillable="true" type="tns:CustomerRegistration" />
+  <xs:complexType name="TicketBooking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Busid" type="xs:int" />
+      <xs:element minOccurs="0" name="Customerid" type="xs:int" />
+      <xs:element minOccurs="0" name="DateOfJourney" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="NoOfTicketBooked" type="xs:int" />
+      <xs:element minOccurs="0" name="RFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RTo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Scheduleid" type="xs:int" />
+      <xs:element minOccurs="0" name="TicketID" type="xs:int" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TicketBooking" nillable="true" type="tns:TicketBooking" />
+  <xs:complexType name="ArrayOfExtractBookingDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtractBookingDetails" nillable="true" type="tns:ExtractBookingDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtractBookingDetails" nillable="true" type="tns:ArrayOfExtractBookingDetails" />
+  <xs:complexType name="ExtractBookingDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvailableSeats" type="xs:int" />
+      <xs:element minOccurs="0" name="BusID" type="xs:int" />
+      <xs:element minOccurs="0" name="BusName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DepartureTime" type="ser:duration" />
+      <xs:element minOccurs="0" name="DoJ" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RouteID" type="xs:int" />
+      <xs:element minOccurs="0" name="ScheduleID" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalCost" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtractBookingDetails" nillable="true" type="tns:ExtractBookingDetails" />
 </xs:schema>

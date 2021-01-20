@@ -1,0 +1,17 @@
+﻿@model Bus_Client.ServiceReference1.TicketBooking
+@{
+    ViewBag.Title = "CancelTicket";
+}
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>Customer_ID</td>
+            <td>
+                @Html.DropDownListFor(x => x.TicketID, @*(IEnumerable<SelectListItem>)*@ ViewBag.Bookid, "select", new { @class = "input" })
+
+            </td>
+        </tr>
+    </table>
+}

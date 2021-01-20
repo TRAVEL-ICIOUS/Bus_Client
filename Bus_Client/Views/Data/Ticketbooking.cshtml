@@ -1,0 +1,146 @@
+﻿@model Bus_Client.ServiceReference1.TicketBooking
+
+
+
+@{
+    ViewBag.Title = "Ticketbooking";
+}
+
+<h2>Ticketbooking</h2>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#RFrom").change(function () {
+
+            // var RouteId = parseInt($(this).val());
+            $.get("/Data/GetToFetch", {
+                RFrom: $("#RFrom").val()
+            }, function (data) {
+                $("#RTo").empty();
+                $("#RTo").append("<option value='-1'>---Select---</option>");
+                $.each(data, function (index, row) {
+                    $("#RTo").append("<option value='" + row.Text + "'>" + row.Value + "</option>")
+                })
+            });
+
+        });
+
+        //$('#search').click(function () {
+
+
+
+        //    $('input[name=sid]:checked').each(function () {
+        //        alert($(this).val());
+        //        $.get("/Data/TicketInsert", {
+        //            sid: $(this).val()
+        //        })
+        //            });
+        //});
+    });
+</script>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>From :</td>
+            <td>
+                @Html.DropDownListFor(x => x.RFrom, (IEnumerable<SelectListItem>)ViewBag.D6, "select", new { @class = "input" })
+            </td>
+            <td>To :</td>
+            <td>
+                @Html.DropDownListFor(x => x.RTo, new SelectList(" "), "select")
+            </td>
+            <td>Number of Tickets  :</td>
+            <td>
+                @Html.DropDownListFor(x => x.NoOfTicketBooked, new List<SelectListItem>
+     {
+           new SelectListItem{Text="Select",Value="-1"},
+         new SelectListItem{Text="1",Value="1"},
+           new SelectListItem{Text="2",Value="2"},
+             new SelectListItem{Text="3",Value="3"},
+               new SelectListItem{Text="4",Value="4"}
+     })
+            </td>
+            <td>
+                <input type="submit" value="Search" id="s" />
+            </td>
+        </tr>
+
+
+
+    </table>
+
+    @*if (ViewBag.TList!=null)
+        {
+            @ViewBag.msg
+        }*@
+
+}
+
+
+
+<style>
+    table {
+        justify-content: center;
+        text-align: center;
+        align-content: center;
+        position: center;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    text {
+        text-align: center;
+        width: 100%;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        border-radius: 20px;
+    }
+
+    td {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    input {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+
+        input.btn {
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: lightgrey;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+            border-radius: 20px;
+        }
+
+    select {
+        margin-top: 10px;
+        text-align: center;
+        width: 100%;
+        padding: 10px 20px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 20px;
+    }
+</style>

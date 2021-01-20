@@ -92,6 +92,36 @@
   <wsdl:message name="IService1_Userlogin_OutputMessage">
     <wsdl:part name="parameters" element="tns:UserloginResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_InsertTicketbooked_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTicketbooked" />
+  </wsdl:message>
+  <wsdl:message name="IService1_InsertTicketbooked_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTicketbookedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFrom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFrom" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetFrom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTicketId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketId" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTicketId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTo" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetToResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExtractBookings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetExtractBookings" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetExtractBookings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetExtractBookingsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="InsertBusInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertBusInfo" message="tns:IService1_InsertBusInfo_InputMessage" />
@@ -148,6 +178,26 @@
     <wsdl:operation name="Userlogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/Userlogin" message="tns:IService1_Userlogin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/UserloginResponse" message="tns:IService1_Userlogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTicketbooked">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/InsertTicketbooked" message="tns:IService1_InsertTicketbooked_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/InsertTicketbookedResponse" message="tns:IService1_InsertTicketbooked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFrom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetFrom" message="tns:IService1_GetFrom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetFromResponse" message="tns:IService1_GetFrom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTicketId" message="tns:IService1_GetTicketId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTicketIdResponse" message="tns:IService1_GetTicketId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTo" message="tns:IService1_GetTo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetToResponse" message="tns:IService1_GetTo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExtractBookings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetExtractBookings" message="tns:IService1_GetExtractBookings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetExtractBookingsResponse" message="tns:IService1_GetExtractBookings_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -271,6 +321,51 @@
     </wsdl:operation>
     <wsdl:operation name="Userlogin">
       <soap:operation soapAction="http://tempuri.org/IService1/Userlogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertTicketbooked">
+      <soap:operation soapAction="http://tempuri.org/IService1/InsertTicketbooked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFrom">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketId">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTicketId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTo">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExtractBookings">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetExtractBookings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
