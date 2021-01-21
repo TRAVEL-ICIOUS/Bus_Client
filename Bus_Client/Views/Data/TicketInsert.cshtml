@@ -1,49 +1,75 @@
-﻿
+﻿@model Bus_Client.ServiceReference1.ExtractById
+
 @{
     ViewBag.Title = "TicketInsert";
 }
 
 <h2>TicketInsert</h2>
-@using (Html.BeginForm("TicketInsert", "Data"))
+
+@using (Html.BeginForm()) 
 {
-    if (ViewBag.TList != null)
-    {
-        <table border="1" cellpadding="15" cellspacing="10">
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ExtractById</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.BusName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BusName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BusName, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.BusType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BusType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BusType, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartureTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DepartureTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DepartureTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-            <tr>
-                <th style="height:50px;width:80px"></th>
-                <th style="height:50px;width:80px">Bus Name</th>
-                <th style="height:50px;width:80px">Seats Available</th>
-                <th style="height:50px;width:80px">schedule Timing</th>
-                <th style="height:50px;width:80px">Total cost</th>
+        <div class="form-group">
+            @Html.LabelFor(model => model.RouteFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RouteFrom, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RouteFrom, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.RouteTo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RouteTo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.RouteTo, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.ScheduleID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ScheduleID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ScheduleID, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-            </tr>
-            @foreach (var row in ViewBag.TList)
-            {
-                <tr>
-                    @*<td>@Html.ActionLink("Book", "Ticketbooking", "Data", new { id = row.ScheduleID }, null)</td>*@
-                    <td style="height:50px;width:80px">@Html.RadioButton("sid", new { @row.ScheduleID })@row.ScheduleID</td>
-                    <td style="height:50px;width:80px">@row.BusName</td>
-                    <td style="height:50px;width:80px">@row.AvailableSeats</td>
-                    <td style="height:50px;width:80px">@row.DepartureTime</td>
-                    <td style="height:50px;width:80px">@row.TotalCost</td>
-
-
-
-
-                </tr>
-
-
-
-            }
-            <tr>
-                <td><input type="button" value="Book" id="search" @*onclick="location.href='@Url.Action("TicketInsert","Data",new { id="sid"})'"*@ /></td>
-            </tr>
-        </table>
-    }
-
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Bus_Client.ServiceReference1.ExtractBookingDetails>
+
+
+
+@{
+    ViewBag.Title = "Ticketbooking";
+}
+
+<h2>Ticketbooking</h2>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#RFrom").change(function () {
+
+            // var RouteId = parseInt($(this).val());
+            $.post("/Data/GetToFetch", {
+                RFrom: $("#RFrom").val()
+            }, function (data) {
+                $("#RTo").empty();
+                $("#RTo").append("<option value='-1'>---Select---</option>");
+                $.each(data, function (index, row) {
+                    $("#RTo").append("<option value='" + row.Text + "'>" + row.Value + "</option>")
+                })
+            });
+
+        });
+
+
+        $("#btnSearch").click
+            (function () {
+
+            // var RouteId = parseInt($(this).val());
+            $.get("/Data/GetToFetch", {
+                RFrom: $("#RFrom").val()
+            }, function (data) {
+                $("#RTo").empty();
+                $("#RTo").append("<option value='-1'>---Select---</option>");
+                $.each(data, function (index, row) {
+                    $("#RTo").append("<option value='" + row.Text + "'>" + row.Value + "</option>")
+                })
+            });
+
+        });
+
+
+
+
+
+        $('#search').click(function () {
+
+            alert('hello');
+
+            $('input[name=sid]:checked').each(function () {
+                var s = $(this).val($('input[name=sid]:checked')).val();
+               // alert(s);
+                var url = "/Data/TicketInsert?sid=" + s;
+                alert(url);
+                window.location.href = url;
+            });
+        });
+    });
+</script>
+
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>From :</td>
+            <td>
+                @Html.DropDownList("RFrom", (IEnumerable<SelectListItem>)ViewBag.D6, "select", new { @class = "input" })
+            </td>
+            <td>To :</td>
+            <td>
+                @if (ViewBag.Rto == null)
+                {
+                    @Html.DropDownList("RTo", new SelectList(""), "--select--")
+                }
+                else
+                {
+                    @Html.DropDownList("RTo", new SelectList(""), new { value = ViewBag.Rto })
+                }
+            </td>
+            <td>Number of Tickets  :</td>
+            <td>
+                @Html.DropDownList("NoOfTicketBooked", new List<SelectListItem>
+     {
+           new SelectListItem{Text="Select",Value="-1"},
+         new SelectListItem{Text="1",Value="1"},
+           new SelectListItem{Text="2",Value="2"},
+             new SelectListItem{Text="3",Value="3"},
+               new SelectListItem{Text="4",Value="4"}
+     })
+            </td>
+            <td>
+                <input type="submit" value="Search" id="btnSearch" />
+            </td>
+        </tr>
+
+
+
+    </table>
+}

@@ -10,7 +10,7 @@ namespace Bus_Client.Controllers
 {
     public class DataController : Controller
     {
-        static Insert_BusInfo [] bi = null;
+        static Insert_BusInfo[] bi = null;
         static Insert_ScheduleInfo[] As = null;
         static Insert_RouteInfo[] ri = null;
         static List<SelectListItem> L = new List<SelectListItem>();
@@ -21,12 +21,13 @@ namespace Bus_Client.Controllers
         static List<SelectListItem> Tos = null;
         static List<SelectListItem> Froms = null;
         static List<SelectListItem> Bookid = null;
+        static List<SelectListItem> CTickets = null;
 
 
         static CustomerRegistration[] U = null;
         static CustomerRegistration[] P = null;
 
-        
+
 
 
 
@@ -75,17 +76,17 @@ namespace Bus_Client.Controllers
             ServiceReference1.Insert_RouteInfo R = new ServiceReference1.Insert_RouteInfo();
             ServiceReference1.Insert_ScheduleInfo R1 = new ServiceReference1.Insert_ScheduleInfo();
             ServiceReference1.Service1Client s1 = new ServiceReference1.Service1Client();
-           
+
             ri = s1.GetRouteid();
-            
-            foreach(Insert_RouteInfo i in ri)
+
+            foreach (Insert_RouteInfo i in ri)
             {
-                L.Add(new SelectListItem { Text = i.RouteFrom + "-" + i.RouteTo, Value=i.RouteID.ToString() });
+                L.Add(new SelectListItem { Text = i.RouteFrom + "-" + i.RouteTo, Value = i.RouteID.ToString() });
 
             }
-           
+
             ViewBag.D1 = L;
-             return View(R1);
+            return View(R1);
 
         }
         [HttpPost]
@@ -93,8 +94,8 @@ namespace Bus_Client.Controllers
         {
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
             // ViewBag.D = Sc.Busid + " " + Sc.Routeid;
-           ViewBag.D1 = L;
-           ViewBag.D = bi;
+            ViewBag.D1 = L;
+            ViewBag.D = bi;
             ViewBag.msg = DbOperations.InsertScheduleInfo(Sc);
             return View();
         }
@@ -128,7 +129,7 @@ namespace Bus_Client.Controllers
 
             ServiceReference1.CS c = new ServiceReference1.CS();
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
-            string []cy = s.GetCountry();
+            string[] cy = s.GetCountry();
             countries = new List<SelectListItem>();
             for (int i = 0; i < cy.Length; i++)
             {
@@ -144,11 +145,17 @@ namespace Bus_Client.Controllers
             //ViewBag.D4 = st;
 
 
-            
+
 
             return View(Re);
-                   
+
         }
+
+        public ActionResult GetDetailscust(int CustomerID)
+        {
+            return View();
+        }
+
         public ActionResult FetchData()
         {
 
@@ -162,29 +169,44 @@ namespace Bus_Client.Controllers
         public ActionResult CustReg(ServiceReference1.CustomerRegistration Cr)
         {
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
-        
+
 
             ViewBag.D3 = countries;
-           // ViewBag.D4 = states;
-         
+            // ViewBag.D4 = states;
+
             ViewBag.msg = DbOperations.InsertCustomer(Cr);
             return View();
-           
+
         }
 
         public ActionResult CancelTicket()
         {
-           
+
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
             //int Cid = Convert.ToInt32(Session["CustomerId"]);
             int Cid = 2021016169;
-            ViewBag.Bookid = s.GetTicketId(Cid);
+            int[] vs = s.GetTicketId(Cid);
+
+            CTickets = new List<SelectListItem>();
+            for (int i = 0; i < vs.Length; i++)
+            {
+                CTickets.Add(new SelectListItem { Text = vs[i].ToString(), Value = vs[i].ToString() });
+            }
+            ViewBag.D8 = CTickets;
+
             return View();
 
         }
-        
+        //[HttpPost]
 
-        public ActionResult  GetLoginC()
+        //public ActionResult CancelTicket(ServiceReference1. )
+        //{
+        //    ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+
+        //}
+
+
+        public ActionResult GetLoginC()
         {
             return View();
         }
@@ -210,11 +232,11 @@ namespace Bus_Client.Controllers
                 ViewBag.msg = "Invalid credentials";
                 return View("GetLoginC");
             }
-           
 
-            
 
-         }
+
+
+        }
 
 
 
@@ -242,7 +264,7 @@ namespace Bus_Client.Controllers
         {
 
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
-            string []st = s.GetState(Country);
+            string[] st = s.GetState(Country);
             ViewBag.D3 = countries;
             states = new List<SelectListItem>();
             for (int i = 0; i < st.Length; i++)
@@ -253,7 +275,7 @@ namespace Bus_Client.Controllers
 
             ViewBag.D4 = states;
             //Session["Country"] = cy;
-            return Json(states,JsonRequestBehavior.AllowGet);
+            return Json(states, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -266,7 +288,7 @@ namespace Bus_Client.Controllers
             ServiceReference1.TicketBooking c = new ServiceReference1.TicketBooking();
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
             string[] gf = s.GetFrom();
-           Froms = new List<SelectListItem>();
+            Froms = new List<SelectListItem>();
             for (int i = 0; i < gf.Length; i++)
             {
                 Froms.Add(new SelectListItem { Text = gf[i], Value = gf[i] });
@@ -285,19 +307,25 @@ namespace Bus_Client.Controllers
             List<ExtractBookingDetails> L = s.GetExtractBookings(Tb.RFrom, Tb.RTo, Tb.NoOfTicketBooked).ToList();
 
             ViewBag.TList = L;
-            
+
             ViewBag.D6 = Froms;
 
             //// ViewBag.D4 = states;
 
             //ViewBag.msg = DbOperations.InsertTicketbooked(Tb);
-            
+
             return View();
 
         }
-        public ActionResult TicketInsert(int sid/*,int NOT*/)
+        public ActionResult TicketInsert(string sid)
         {
-            return View();
+            int length = sid.Length;
+            int l = sid.LastIndexOf(' ');
+            int sid1 = int.Parse(sid.Substring(9, length - l));
+            ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
+            ExtractById E = s.getExtractBySid(sid1);
+
+            return View(E);
         }
 
 
@@ -306,7 +334,7 @@ namespace Bus_Client.Controllers
 
             ServiceReference1.Service1Client s = new ServiceReference1.Service1Client();
             string[] gt = s.GetTo(RFrom);
-            ViewBag.D6 =Froms;
+            ViewBag.D6 = Froms;
             Tos = new List<SelectListItem>();
             for (int i = 0; i < gt.Length; i++)
             {
@@ -320,4 +348,4 @@ namespace Bus_Client.Controllers
         }
 
     }
-    }
+}

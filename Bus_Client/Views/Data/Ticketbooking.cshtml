@@ -26,17 +26,22 @@
 
         });
 
-        //$('#search').click(function () {
+
+
+        $('#search').click(function () {
 
 
 
-        //    $('input[name=sid]:checked').each(function () {
-        //        alert($(this).val());
-        //        $.get("/Data/TicketInsert", {
-        //            sid: $(this).val()
-        //        })
-        //            });
-        //});
+            $('input[name=ScheduleID]:checked').each(function () {
+                var s = $(this).val();
+               alert(s);
+                //matches = s.match(/\d+/g);
+                //alert(matches[2]);
+                var url = "/Data/TicketInsert?sid=" + s;
+               // alert(url);
+                window.location.href = url;
+            });
+        });
     });
 </script>
 
@@ -50,7 +55,14 @@
             </td>
             <td>To :</td>
             <td>
-                @Html.DropDownListFor(x => x.RTo, new SelectList(" "), "select")
+                @if (ViewBag.Rto == null)
+                {
+                    @Html.DropDownListFor(x => x.RTo, new SelectList(""), "--select--")
+                }
+                else
+                {
+                    @Html.DropDownListFor(x => x.RTo, new SelectList(""), new { value = ViewBag.Rto })
+                }
             </td>
             <td>Number of Tickets  :</td>
             <td>
@@ -71,76 +83,106 @@
 
 
     </table>
-
-    @*if (ViewBag.TList!=null)
-        {
-            @ViewBag.msg
-        }*@
-
 }
+    @using (Html.BeginForm())
+    {
+
+        if (ViewBag.TList != null)
+        {
+            <table border="1" cellpadding="15" cellspacing="10">
 
 
 
-<style>
-    table {
-        justify-content: center;
-        text-align: center;
-        align-content: center;
-        position: center;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        margin: auto;
+                <tr>
+                    <th style="height:50px;width:80px"></th>
+                    <th style="height:50px;width:80px">Bus Name</th>
+                    <th style="height:50px;width:80px">Seats Available</th>
+                    <th style="height:50px;width:80px">schedule Timing</th>
+                    <th style="height:50px;width:80px">Total cost</th>
+
+
+
+                </tr>
+                @foreach (var row in ViewBag.TList)
+                {
+                    <tr>
+                        @*<td>@Html.ActionLink("Book", "Ticketbooking", "Data", new { id = row.ScheduleID }, null)</td>*@
+                        <td style="height:50px;width:80px">@Html.RadioButton("ScheduleID", new {Value=row.ScheduleID })@row.ScheduleID</td>
+                        <td style="height:50px;width:80px">@row.BusName</td>
+                        <td style="height:50px;width:80px">@row.AvailableSeats</td>
+                        <td style="height:50px;width:80px">@row.DepartureTime</td>
+                        <td style="height:50px;width:80px">@row.TotalCost</td>
+                    </tr>
+                }
+                <tr>
+                    <td><input type="button" value="Book" id="search" /></td>
+                </tr>
+            </table>
+        }
     }
 
-    text {
-        text-align: center;
-        width: 100%;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        border-radius: 20px;
-    }
 
-    td {
-        font-size: 16px;
-        font-weight: bold;
-    }
 
-    input {
-        margin-top: 10px;
-        text-align: center;
-        width: 100%;
-        padding: 10px 20px;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 20px;
-    }
+    <style>
+        table {
+            justify-content: center;
+            text-align: center;
+            align-content: center;
+            position: center;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+        }
 
-        input.btn {
+        text {
+            text-align: center;
+            width: 100%;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            border-radius: 20px;
+        }
+
+        td {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input {
             margin-top: 10px;
             text-align: center;
             width: 100%;
             padding: 10px 20px;
-            background-color: lightgrey;
+            background-color: white;
             color: black;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             border-radius: 20px;
         }
 
-    select {
-        margin-top: 10px;
-        text-align: center;
-        width: 100%;
-        padding: 10px 20px;
-        background-color: white;
-        color: black;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 20px;
-    }
-</style>
+            input.btn {
+                margin-top: 10px;
+                text-align: center;
+                width: 100%;
+                padding: 10px 20px;
+                background-color: lightgrey;
+                color: black;
+                font-weight: bold;
+                font-size: 16px;
+                border-radius: 20px;
+            }
+
+        select {
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 20px;
+        }
+    </style>

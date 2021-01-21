@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RetrivalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -149,6 +150,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\Bus_Client.ServiceReference1.ExtractBookingDetails.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\Bus_Client.ServiceReference1.ExtractById.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
@@ -251,6 +255,8 @@
     <Content Include="Views\Data\Ticketbooking.cshtml" />
     <Content Include="Views\Data\TicketInsert.cshtml" />
     <Content Include="Views\Data\CancelTicket.cshtml" />
+    <Content Include="Views\Retrival\Index.cshtml" />
+    <Content Include="Views\Data\FetchData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
